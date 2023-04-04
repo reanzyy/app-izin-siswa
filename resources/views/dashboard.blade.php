@@ -19,7 +19,9 @@
                             <h2 class="text-gray-700 text-2xl font-extrabold leading-tight mb-2">Selamat Datang
                                 <span class="text-blue-600"> {{ Auth::user()->name }}!</span>
                             </h2>
-                            <p class="font-semibold text-gray-700">Di Website Aplikasi Izin Keluar Lingkungan Sekolah</p>
+                            <p class="font-semibold text-gray-700">
+                                Di Website Aplikasi Izin Keluar Lingkungan Sekolah
+                            </p>
                         </div>
                     </div>
                 </div>
