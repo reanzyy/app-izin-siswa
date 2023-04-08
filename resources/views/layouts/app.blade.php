@@ -119,8 +119,8 @@
                 <aside class="main-sidebar main-sidebar-custom sidebar-light-primary elevation-4">
                     <!-- Brand Logo -->
                     <a href="/" class="brand-link">
-                        <img src="{{ url('adminlte/img/logo.png') }}" alt="AdminLTE Logo"
-                            class="brand-image img-circle elevation-3">
+                        <img src="{{ url('adminlte/img/neper.png') }}" alt=""
+                            class="brand-image img-circle elevation-3" style="opacity: .8">
                         <span class="brand-text font-weight-light">Dispensasi</span>
                     </a>
 

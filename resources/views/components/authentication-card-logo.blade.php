@@ -1,1 +1,1 @@
-<img src="{{ url('adminlte/img/logo.png') }}" class="img-fluid" width="150" alt="">
+<img src="{{ url('adminlte/img/neper.png') }}" class="img-fluid" width="150" alt="">
