@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DispensasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('pages.index');
 });
 
 Route::middleware([
@@ -26,3 +27,5 @@ Route::middleware([
         return view('pages.dashboard');
     })->name('dashboard');
 });
+
+Route::get('/dispensasi', [DispensasiController::class, 'index'])->name('dispensasi.index');
