@@ -13,17 +13,7 @@ return new class extends Migration
     {
         Schema::create('cetak', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('id_sekolah')->constrained('sekolah');
-            // $table->foreignId('no_d')->constrained('dispensasi');
-            // $table->unsignedBigInteger('id_sekolah');
-            // $table->unsignedBigInteger('no_d');
             $table->date('waktu_cetak');
-            // $table->foreignId('id_guru')->constrained('guru');
-            // $table->unsignedBigInteger('id_guru');
-
-            // $table->foreign('id_sekolah')->references('id_sekolah')->on('sekolah');
-            // $table->foreign('no_d')->references('no_d')->on('dispensasi');
-            // $table->foreign('id_guru')->references('id_guru')->on('guru');
         });
     }
 

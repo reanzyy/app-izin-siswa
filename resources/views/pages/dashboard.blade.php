@@ -1,12 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="mt-4 mb-24">
-            <h2 class="font-semibold text-xl text-white leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
-            <p class="text-white font-extralight">
-                Administrator Panel
-            </p>
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="font-semibold text-xl text-white leading-tight">
+                        {{ __('Dashboard') }}
+                    </h2>
+                    <p class="text-white font-extralight">
+                        Administrator Panel
+                    </p>
+                </div>
+                <div class="col-6">
+                </div>
+            </div>
         </div>
     </x-slot>
 
