@@ -848,7 +848,6 @@
         @endif
 
         <div class="container">
-            
         </div>
 
     </div>
