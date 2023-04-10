@@ -160,7 +160,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../jampelajaran.html" class="nav-link">
+                                    <a href="{{ route('jampelajaran.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'jampelajaran.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-clock"></i>
                                         <p>
                                             Jam Pelajaran
@@ -168,7 +169,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../gurupiket.html" class="nav-link">
+                                    <a href="{{ route('guru.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'guru.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-user-friends"></i>
                                         <p>
                                             Guru Piket

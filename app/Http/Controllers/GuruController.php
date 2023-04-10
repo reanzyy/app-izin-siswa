@@ -12,7 +12,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        $guru = Guru::get();
+
+        return view('pages.guru.index', compact('guru'));
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kelas;
 use App\Models\Dispensasi;
 use App\Models\JamPelajaran;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +22,7 @@ class DispensasiController extends Controller
         //     ->join('jam_pelajaran', 'dispensasi.jam_kembali', '=', 'jam_pelajaran.id')
         //     ->get();
 
-        $dispensasi = Dispensasi::with('kelas','jurusan','jammulai', 'jamkembali')->get();
+        $dispensasi = Dispensasi::with('kelas', 'jurusan', 'jammulai', 'jamkembali')->get();
 
         return view('pages.dispensasi.index', compact('dispensasi'));
     }
@@ -33,8 +34,9 @@ class DispensasiController extends Controller
     {
         $kelas = Kelas::get();
         $jam = JamPelajaran::get();
+        $jurusan = Jurusan::get();
 
-        return view('formulir', compact('kelas', 'jam'));
+        return view('formulir', compact('kelas', 'jam', 'jurusan'));
     }
 
     /**
@@ -44,6 +46,8 @@ class DispensasiController extends Controller
     {
         Dispensasi::insert([
             'nama_siswa' => $request->nama_siswa,
+            'id_kelas' => $request->id_kelas,
+            'id_jurusan' => $request->id_jurusan,
             'jam_mulai' => $request->jam_mulai,
             'jam_kembali' => $request->jam_kembali,
             'keperluan' => $request->keperluan,
@@ -51,8 +55,6 @@ class DispensasiController extends Controller
             'email' => $request->email,
             'plat_no' => $request->plat_no,
             'status' => $request->status,
-            'id_kelas' => $request->id_kelas,
-            'id_jurusan' => $request->id_jurusan,
         ]);
 
         return redirect('/');

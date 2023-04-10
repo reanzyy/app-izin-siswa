@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DispensasiController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\JamPelajaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +38,11 @@ Route::get('/dispensasi/formulir/create', [DispensasiController::class, 'store']
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
 Route::get('/kelas/create', [KelasController::class, 'create'])->name('kelas.create');
 Route::get('/kelas/create/add', [KelasController::class, 'store'])->name('kelas.store');
+
+Route::get('/jampelajaran', [JamPelajaranController::class, 'index'])->name('jampelajaran.index');
+Route::get('/jampelajaran/create', [JampelajaranController::class, 'create'])->name('jampelajaran.create');
+Route::get('/jampelajaran/create/add', [JampelajaranController::class, 'store'])->name('jampelajaran.store');
+
+Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
+Route::get('/guru/create', [GuruController::class, 'create'])->name('guru.create');
+Route::get('/guru/create/add', [GuruController::class, 'store'])->name('guru.store');

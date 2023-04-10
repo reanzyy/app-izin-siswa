@@ -39,16 +39,17 @@
                         <div class="col-4">
                             <div class="mb-3">
                                 <label class="form-label">Kelas</label>
-                                <select name="kelas" class="form-select">
+                                <select name="id_kelas" class="form-select">
                                     @foreach ($kelas as $kelasitem)
-                                        <option value="{{ $kelasitem->nama_kelas }}">{{ $kelasitem->nama_kelas }}
+                                        <option value="{{ $kelasitem->id }}">
+                                            {{ $kelasitem->nama_kelas }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
 
-                        <div class="col-8"></div>
+                        <div class="col-6"></div>
 
                         <div class="col-4">
                             <div class="mb-3">

@@ -16,6 +16,8 @@ class Dispensasi extends Model
     protected $fillable = [
         'id',
         'nama_siswa',
+        'id_kelas',
+        'id_jurusan',
         'jam_mulai',
         'jam_kembali',
         'keperluan',
@@ -23,20 +25,22 @@ class Dispensasi extends Model
         'email',
         'plat_no',
         'status',
-        'id_kelas',
-        'id_jurusan',
     ];
 
-    public function kelas(){
+    public function kelas()
+    {
         return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
     }
-    public function jurusan(){
+    public function jurusan()
+    {
         return $this->belongsTo(Jurusan::class, 'id_jurusan', 'id');
     }
-    public function jammulai(){
+    public function jammulai()
+    {
         return $this->belongsTo(JamPelajaran::class, 'jam_mulai', 'id');
     }
-    public function jamkembali(){
+    public function jamkembali()
+    {
         return $this->belongsTo(JamPelajaran::class, 'jam_kembali', 'id');
     }
 }

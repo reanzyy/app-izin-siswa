@@ -12,7 +12,9 @@ class JamPelajaranController extends Controller
      */
     public function index()
     {
-        //
+        $jam = JamPelajaran::get();
+
+        return view('pages.jampelajaran.index', compact('jam'));
     }
 
     /**
