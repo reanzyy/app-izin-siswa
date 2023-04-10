@@ -6,13 +6,15 @@
     </x-slot>
 
     <div class="shadow overflow-hidden sm-rounded-md mt-5 mx-4">
-        <div class="px-4 py-5 bg-white sm:p-6 ">
+        <div class="px-4 py-4 bg-white sm:p-6 ">
+            <a href="{{ route('kelas.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Kelas</th>
                         <th>Jurusan</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,6 +23,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_kelas }}</td>
                             <td>{{ $item->jurusan->nama_jurusan }}</td>
+                            <td>
+                                <div class="flex gap-1">
+                                    <a href="kelas/edit/{{ $item->id }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('kelas.delete', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

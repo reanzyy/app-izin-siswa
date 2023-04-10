@@ -34,9 +34,9 @@ class DispensasiController extends Controller
     {
         $kelas = Kelas::get();
         $jam = JamPelajaran::get();
-        $jurusan = Jurusan::get();
+        // $jurusan = Jurusan::get();
 
-        return view('formulir', compact('kelas', 'jam', 'jurusan'));
+        return view('formulir', compact('kelas', 'jam'));
     }
 
     /**
@@ -63,9 +63,9 @@ class DispensasiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Dispensasi $dispensasi)
     {
-        //
+        return view('pages.dispensasi.show', compact('dispensasi'));
     }
 
     /**
@@ -87,8 +87,10 @@ class DispensasiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(Dispensasi $dispensasi)
     {
-        //
+        Dispensasi::where('id', $dispensasi->id)->delete();
+
+        return redirect('dispensasi');
     }
 }

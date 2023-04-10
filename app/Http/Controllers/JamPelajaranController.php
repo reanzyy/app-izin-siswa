@@ -22,7 +22,7 @@ class JamPelajaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.jampelajaran.create');
     }
 
     /**
@@ -30,7 +30,12 @@ class JamPelajaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        JamPelajaran::insert([
+            'jam_pelajaran' => $request->jam_pelajaran,
+        ]);
+
+        return redirect('jampelajaran');
     }
 
     /**
@@ -46,7 +51,7 @@ class JamPelajaranController extends Controller
      */
     public function edit(JamPelajaran $jamPelajaran)
     {
-        //
+        return redirect('jampelajaran', compact('jamPelajaran'));
     }
 
     /**
@@ -54,14 +59,21 @@ class JamPelajaranController extends Controller
      */
     public function update(Request $request, JamPelajaran $jamPelajaran)
     {
-        //
+
+        JamPelajaran::insert([
+            'jam_pelajaran' => $request->jam_pelajaran,
+        ]);
+
+        return redirect('jampelajaran', compact('jamPelajaran'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JamPelajaran $jamPelajaran)
+    public function delete(JamPelajaran $jamPelajaran)
     {
-        //
+        JamPelajaran::where('id', $jamPelajaran->id)->delete();
+
+        return redirect('jampelajaran');
     }
 }

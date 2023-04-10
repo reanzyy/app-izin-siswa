@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,10 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+
+        $jurusan = Jurusan::get();
+
+        return view('pages.kelas.create', compact('jurusan'));
     }
 
     /**
@@ -30,7 +34,12 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kelas::insert([
+            'nama_kelas' => $request->nama_kelas,
+            'id_jurusan' => $request->id_jurusan,
+        ]);
+
+        return redirect('kelas');
     }
 
     /**
@@ -46,7 +55,10 @@ class KelasController extends Controller
      */
     public function edit(Kelas $kelas)
     {
-        //
+
+        $jurusan = Jurusan::get();
+
+        return view('pages.kelas.edit', compact('kelas', 'jurusan'));
     }
 
     /**
@@ -54,14 +66,22 @@ class KelasController extends Controller
      */
     public function update(Request $request, Kelas $kelas)
     {
-        //
+
+        Kelas::where('id', $kelas->id)->update([
+            'nama_kelas' => $request->nama_kelas,
+            'id_jurusan' => $request->id_jurusan,
+        ]);
+
+        return redirect('kelas');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kelas $kelas)
+    public function delete(Kelas $kelas)
     {
-        //
+        Kelas::where('id', $kelas->id)->delete();
+
+        return redirect('kelas');
     }
 }

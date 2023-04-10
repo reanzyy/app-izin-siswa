@@ -17,6 +17,7 @@
                         <th>Kembali jam ke</th>
                         <th>Plat no</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,17 @@
                             <td>{{ $item->jamkembali->jam }}</td>
                             <td>{{ $item->plat_no }}</td>
                             <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
+                            <td>
+                                <div class="flex gap-1">
+                                    <a href="/dispensasi/show/{{ $item->id }}"
+                                        class="btn btn-primary btn-sm">Detail</a>
+                                    <form action="{{ route('dispensasi.delete', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
