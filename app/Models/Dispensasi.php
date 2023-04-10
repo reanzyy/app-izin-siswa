@@ -10,13 +10,12 @@ class Dispensasi extends Model
     use HasFactory;
 
     protected $table = 'dispensasi';
+    protected $primaryKey = 'id';
 
-    protected $guarded = [];
 
     protected $fillable = [
+        'id',
         'nama_siswa',
-        'kelas',
-        'jam_pelajaran',
         'jam_mulai',
         'jam_kembali',
         'keperluan',
@@ -27,4 +26,17 @@ class Dispensasi extends Model
         'id_kelas',
         'id_jurusan',
     ];
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
+    }
+    public function jurusan(){
+        return $this->belongsTo(Jurusan::class, 'id_jurusan', 'id');
+    }
+    public function jammulai(){
+        return $this->belongsTo(JamPelajaran::class, 'jam_mulai', 'id');
+    }
+    public function jamkembali(){
+        return $this->belongsTo(JamPelajaran::class, 'jam_kembali', 'id');
+    }
 }

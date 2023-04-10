@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl leading-tight">
-            {{ __('Dispensasi') }}
+            {{ __('Kelas') }}
         </h2>
     </x-slot>
 
@@ -11,24 +11,16 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
                         <th>Kelas</th>
-                        <th>Mulai jam ke</th>
-                        <th>Kembali jam ke</th>
-                        <th>Plat no</th>
-                        <th>Status</th>
+                        <th>Jurusan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dispensasi  as $item)
+                    @foreach ($kelas  as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->nama_siswa }}</td>
-                            <td>{{ $item->kelas->nama_kelas }}</td>
-                            <td>{{ $item->jammulai->jam }}</td>
-                            <td>{{ $item->jamkembali->jam }}</td>
-                            <td>{{ $item->plat_no }}</td>
-                            <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
+                            <td>{{ $item->nama_kelas }}</td>
+                            <td>{{ $item->jurusan->nama_jurusan }}</td>
                         </tr>
                     @endforeach
                 </tbody>

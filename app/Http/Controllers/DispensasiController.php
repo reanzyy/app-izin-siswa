@@ -15,14 +15,13 @@ class DispensasiController extends Controller
      */
     public function index()
     {
-        $dispensasi = Dispensasi::join('kelas', 'dispensasi.id_kelas', '=', 'kelas.id')
-            ->join('jurusan', 'dispensasi.id_jurusan', '=', 'jurusan.id')
-            ->join('jam_pelajaran', 'dispensasi.jam_mulai', '=', 'jam_pelajaran.id')
-            ->join('jam_pelajaran', 'dispensasi.jam_kembali', '=', 'jam_pelajaran.id')
-            ->get();
+        // $dispensasi = Dispensasi::join('kelas', 'dispensasi.id_kelas', '=', 'kelas.id')
+        //     ->join('jurusan', 'dispensasi.id_jurusan', '=', 'jurusan.id')
+        //     ->join('jam_pelajaran', 'dispensasi.jam_mulai', '=', 'jam_pelajaran.id')
+        //     ->join('jam_pelajaran', 'dispensasi.jam_kembali', '=', 'jam_pelajaran.id')
+        //     ->get();
 
-
-        // $dispensasi = DB::table('dispensasi')
+        $dispensasi = Dispensasi::with('kelas','jurusan','jammulai', 'jamkembali')->get();
 
         return view('pages.dispensasi.index', compact('dispensasi'));
     }

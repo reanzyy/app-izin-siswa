@@ -151,7 +151,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../kelas.html" class="nav-link">
+                                    <a href="{{ route('kelas.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'kelas.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-layer-group"></i>
                                         <p>
                                             Kelas

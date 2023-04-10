@@ -31,3 +31,5 @@ Route::middleware([
 Route::get('/dispensasi', [DispensasiController::class, 'index'])->name('dispensasi.index');
 Route::get('/dispensasi/formulir', [DispensasiController::class, 'create'])->name('dispensasi.create');
 Route::get('/dispensasi/formulir/create', [DispensasiController::class, 'store'])->name('dispensasi.store');
+
+Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');

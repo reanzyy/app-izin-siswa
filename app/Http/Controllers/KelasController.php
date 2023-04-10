@@ -12,7 +12,9 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $kelas = Kelas::with('jurusan')->get();
+
+        return view('pages.kelas.index', compact('kelas'));
     }
 
     /**
