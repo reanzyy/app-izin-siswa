@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\DispensasiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\DispensasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,5 @@ Route::get('/dispensasi/formulir', [DispensasiController::class, 'create'])->nam
 Route::get('/dispensasi/formulir/create', [DispensasiController::class, 'store'])->name('dispensasi.store');
 
 Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
+Route::get('/kelas/create', [KelasController::class, 'create'])->name('kelas.create');
+Route::get('/kelas/create/add', [KelasController::class, 'store'])->name('kelas.store');
