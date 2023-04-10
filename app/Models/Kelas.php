@@ -12,7 +12,7 @@ class Kelas extends Model
     protected $table = 'kelas';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id', 'nama_kelas',
+        'id', 'nama_kelas','id_jurusan',
     ];
 
     public function dispensasi()
@@ -22,6 +22,6 @@ class Kelas extends Model
 
     public function jurusan()
     {
-        return $this->belongsTo(Kelas::class, 'id_jurusan', 'id');
+        return $this->belongsTo(Jurusan::class, 'id_jurusan', 'id');
     }
 }
