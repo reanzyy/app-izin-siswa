@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cetak', function (Blueprint $table) {
             $table->id();
-            $table->date('waktu_cetak');
+            $table->timestamps();
         });
     }
 

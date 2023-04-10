@@ -47,7 +47,7 @@ class DispensasiController extends Controller
             'jam_mulai' => $request->jam_mulai,
             'jam_kembali' => $request->jam_kembali,
             'keperluan' => $request->keperluan,
-            'waktu_input' => $request->waktu_input,
+            // 'waktu_input' => $request->waktu_input,
             'email' => $request->email,
             'plat_no' => $request->plat_no,
             'status' => $request->status,

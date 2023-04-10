@@ -19,7 +19,7 @@ class Dispensasi extends Model
         'jam_mulai',
         'jam_kembali',
         'keperluan',
-        'waktu_input',
+        // 'waktu_input',
         'email',
         'plat_no',
         'status',

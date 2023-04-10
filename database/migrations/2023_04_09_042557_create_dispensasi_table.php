@@ -14,12 +14,10 @@ return new class extends Migration
         Schema::create('dispensasi', function (Blueprint $table) {
             $table->id();
             $table->string('nama_siswa');
-            $table->string('kelas');
-            $table->string('jam_pelajaran');
             $table->text('keperluan');
             $table->string('email');
             $table->string('plat_no');
-            $table->string('status')->default('Belum diproses');
+            $table->enum('status',['Belum Disetujui', 'Disetujui']);
             $table->timestamps();
         });
     }
