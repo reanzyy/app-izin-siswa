@@ -44,8 +44,6 @@ class DispensasiController extends Controller
     {
         Dispensasi::insert([
             'nama_siswa' => $request->nama_siswa,
-            'kelas' => $request->kelas,
-            'jam_pelajaran' => $request->jam_pelajaran,
             'jam_mulai' => $request->jam_mulai,
             'jam_kembali' => $request->jam_kembali,
             'keperluan' => $request->keperluan,
