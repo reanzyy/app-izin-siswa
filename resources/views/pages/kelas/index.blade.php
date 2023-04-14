@@ -5,13 +5,13 @@
         </h2>
     </x-slot>
 
-    <div class="shadow overflow-hidden sm-rounded-md mt-5 mx-4">
+    <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-4 bg-white sm:p-6 ">
             <a href="{{ route('kelas.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
-            <table class="table table-bordered">
+            <table id="tabel-data" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th width="25">No</th>
                         <th>Kelas</th>
                         <th>Jurusan</th>
                         <th>Aksi</th>
@@ -25,8 +25,9 @@
                             <td>{{ $item->jurusan->nama_jurusan }}</td>
                             <td>
                                 <div class="flex gap-1">
-                                    <a href="kelas/edit/{{ $item->id }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('kelas.delete', $item->id) }}" method="POST">
+                                    <a href="{{ route('kelas.edit', $item->id) }}"
+                                        class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('kelas.destroy', $item->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>

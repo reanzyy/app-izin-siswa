@@ -5,9 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="shadow overflow-hidden sm-rounded-md mt-5 mx-4">
-        <div class="px-4 py-5 bg-white sm:p-6 ">
-            <table class="table table-bordered">
+    <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
+        <div class="px-4 py-4 bg-white sm:p-6 ">
+            <table id="tabel-data" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -32,9 +32,9 @@
                             <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
                             <td>
                                 <div class="flex gap-1">
-                                    <a href="/dispensasi/show/{{ $item->id }}"
+                                    <a href="{{ route('dispensasi.show', $item->id) }}"
                                         class="btn btn-primary btn-sm">Detail</a>
-                                    <form action="{{ route('dispensasi.delete', $item->id) }}" method="POST">
+                                    <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>

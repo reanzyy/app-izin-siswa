@@ -32,16 +32,16 @@ class JamPelajaranController extends Controller
     {
 
         JamPelajaran::insert([
-            'jam_pelajaran' => $request->jam_pelajaran,
+            'jam' => $request->jam,
         ]);
 
-        return redirect('jampelajaran');
+        return redirect('jam');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(JamPelajaran $jamPelajaran)
+    public function show(JamPelajaran $jam)
     {
         //
     }
@@ -49,31 +49,31 @@ class JamPelajaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JamPelajaran $jamPelajaran)
+    public function edit(JamPelajaran $jam)
     {
-        return redirect('jampelajaran', compact('jamPelajaran'));
+        return view('pages.jampelajaran.edit', compact('jam'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JamPelajaran $jamPelajaran)
+    public function update(Request $request, JamPelajaran $jam)
     {
 
-        JamPelajaran::insert([
-            'jam_pelajaran' => $request->jam_pelajaran,
+        JamPelajaran::where('id', $jam->id)->update([
+            'jam' => $request->jam,
         ]);
 
-        return redirect('jampelajaran', compact('jamPelajaran'));
+        return redirect('jam');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(JamPelajaran $jamPelajaran)
+    public function destroy(JamPelajaran $jam)
     {
-        JamPelajaran::where('id', $jamPelajaran->id)->delete();
+        JamPelajaran::where('id', $jam->id)->delete();
 
-        return redirect('jampelajaran');
+        return redirect('jam');
     }
 }

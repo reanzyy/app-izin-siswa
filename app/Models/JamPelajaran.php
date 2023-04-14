@@ -13,7 +13,7 @@ class JamPelajaran extends Model
     protected $table = 'jam_pelajaran';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'id','jam',
+        'id', 'jam',
     ];
 
     public function Dispensasi(): HasMany

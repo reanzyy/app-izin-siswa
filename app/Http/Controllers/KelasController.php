@@ -53,21 +53,21 @@ class KelasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kelas $kelas)
+    public function edit(Kelas $kela)
     {
 
         $jurusan = Jurusan::get();
 
-        return view('pages.kelas.edit', compact('kelas', 'jurusan'));
+        return view('pages.kelas.edit', compact('kela', 'jurusan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, Kelas $kela)
     {
 
-        Kelas::where('id', $kelas->id)->update([
+        Kelas::where('id', $kela->id)->update([
             'nama_kelas' => $request->nama_kelas,
             'id_jurusan' => $request->id_jurusan,
         ]);
@@ -78,9 +78,9 @@ class KelasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Kelas $kelas)
+    public function destroy(Kelas $kela)
     {
-        Kelas::where('id', $kelas->id)->delete();
+        Kelas::where('id', $kela->id)->delete();
 
         return redirect('kelas');
     }

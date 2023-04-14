@@ -20,10 +20,10 @@
 </head>
 
 <body class="bg-primary">
-    <div class="shadow overflow-hidden sm-rounded-md mt-5 mx-4">
+    <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-5 bg-white sm:p-6 ">
             <div class="container-fluid">
-                <form action="/dispensasi/formulir/create">
+                <form action="{{ route('dispensasi.store') }}" method="post">
                     @csrf
                     <div class="row">
 
@@ -31,6 +31,9 @@
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Lengkap Siswa</label>
                                 <input type="text" name="nama_siswa" class="form-control" id="nama">
+                                @error('nama_siswa')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -83,6 +86,9 @@
                             <div class="mb-3">
                                 <label class="form-label">Keperluan</label>
                                 <textarea name="keperluan" class="form-control" rows="3"></textarea>
+                                @error('keperluan')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
@@ -92,15 +98,22 @@
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
                                 <input type="text" name="email" class="form-control">
+                                @error('email')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-6"></div>
 
                         <div class="col-6">
-                            <div class="mb-4">
+                            <div class="mb-4 d-flex flex-column">
                                 <label class="form-label">Plat no</label>
+                                <sup class="mb-2">Kosongkan bila perlu <i class="fa fa-info-circle"></i></sup>
                                 <input type="text" name="plat_no" class="form-control">
+                                @error('plat_no')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
 

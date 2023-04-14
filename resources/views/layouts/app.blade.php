@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ url('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('adminlte/css/adminlte.min.css') }}">
+    <!-- Datatable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -161,8 +164,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('jampelajaran.index') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'jampelajaran.index' ? 'active' : '' }}">
+                                    <a href="{{ route('jam.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'jam.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-clock"></i>
                                         <p>
                                             Jam Pelajaran
@@ -261,6 +264,16 @@
     <script src="{{ url('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ url('adminlte/js/adminlte.min.js') }}"></script>
+    <!-- Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tabel-data').DataTable();
+        });
+    </script>
+
 </body>
 
 </html>
