@@ -17,8 +17,7 @@ return new class extends Migration
             $table->text('keperluan');
             $table->string('email');
             $table->string('plat_no');
-            $table->dateTime('waktu_input');
-            $table->tinyInteger('status');
+            $table->enum('status',['Belum Disetujui', 'Disetujui']);
             $table->timestamps();
         });
     }

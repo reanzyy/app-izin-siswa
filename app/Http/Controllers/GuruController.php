@@ -12,7 +12,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        $guru = Guru::get();
+
+        return view('pages.guru.index', compact('guru'));
     }
 
     /**
@@ -20,7 +22,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.guru.create');
     }
 
     /**
@@ -28,7 +30,11 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Guru::insert([
+            'nama_guru' => $request->nama_guru,
+        ]);
+
+        return redirect('guru');
     }
 
     /**
@@ -44,7 +50,7 @@ class GuruController extends Controller
      */
     public function edit(Guru $guru)
     {
-        //
+        return view('pages.guru.edit', compact('guru'));
     }
 
     /**
@@ -52,7 +58,11 @@ class GuruController extends Controller
      */
     public function update(Request $request, Guru $guru)
     {
-        //
+        Guru::where('id', $guru->id)->update([
+            'nama_guru' => $request->nama_guru,
+        ]);
+
+        return redirect('guru');
     }
 
     /**
@@ -60,6 +70,8 @@ class GuruController extends Controller
      */
     public function destroy(Guru $guru)
     {
-        //
+        Guru::where('id', $guru->id)->delete();
+
+        return redirect('guru');
     }
 }

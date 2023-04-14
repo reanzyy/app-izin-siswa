@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cetak', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('cetak', function (Blueprint $table) {
+            $table->foreignId('sekolah_id')->constrained('sekolah');
+            $table->foreignId('no_d')->constrained('dispensasi');
+            $table->foreignId('id_guru')->constrained('guru');
         });
     }
 
@@ -22,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cetak');
+        Schema::table('cetak', function (Blueprint $table) {
+            //
+        });
     }
 };
