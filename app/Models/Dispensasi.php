@@ -17,14 +17,14 @@ class Dispensasi extends Model
         'id',
         'nama_siswa',
         'id_kelas',
-        'id_jurusan',
+        // 'id_jurusan',
         'jam_mulai',
         'jam_kembali',
         'keperluan',
         // 'waktu_input',
         'email',
         'plat_no',
-        'status',
+        // 'status',
     ];
 
     public function kelas()

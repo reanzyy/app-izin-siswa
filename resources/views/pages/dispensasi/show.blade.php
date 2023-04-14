@@ -35,7 +35,11 @@
                     </tr>
                     <tr>
                         <th>Status</th>
-                        <th>{{ $dispensasi->status }}</th>
+                        <th>
+                            <span class="badge {{ $dispensasi->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">
+                                {{ $dispensasi->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}
+                            </span>
+                        </th>
                     </tr>
                     <tr>
                         <th>Aksi</th>

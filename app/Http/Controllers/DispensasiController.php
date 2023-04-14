@@ -44,13 +44,12 @@ class DispensasiController extends Controller
         Dispensasi::create([
             'nama_siswa' => $request->nama_siswa,
             'id_kelas' => $request->id_kelas,
-            'id_jurusan' => $request->id_jurusan,
+            // 'id_jurusan' => $request->id_jurusan,
             'jam_mulai' => $request->jam_mulai,
             'jam_kembali' => $request->jam_kembali,
             'keperluan' => $request->keperluan,
             'email' => $request->email,
             'plat_no' => $request->plat_no,
-            'status' => $request->status,
         ]);
 
         return redirect('/');

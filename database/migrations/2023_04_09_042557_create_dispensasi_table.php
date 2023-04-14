@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nama_siswa');
             $table->text('keperluan');
             $table->string('email');
-            $table->string('plat_no');
-            $table->enum('status',['Belum Disetujui', 'Disetujui']);
+            $table->string('plat_no')->nullable();
+            $table->bigInteger('status')->default('1');
             $table->timestamps();
         });
     }

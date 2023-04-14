@@ -29,7 +29,9 @@
                             <td>{{ $item->jammulai->jam }}</td>
                             <td>{{ $item->jamkembali->jam }}</td>
                             <td>{{ $item->plat_no }}</td>
-                            <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
+                            <td><span
+                                    class="badge {{ $item->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}</span>
+                            </td>
                             <td>
                                 <div class="flex gap-1">
                                     <a href="{{ route('dispensasi.show', $item->id) }}"
