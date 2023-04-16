@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <!-- Vendor CSS Files -->
+
+    <link href="frontend/vendor/aos/aos.css" rel="stylesheet">
+    <link href="frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="frontend/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="frontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="frontend/css/style.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: Figtree, sans-serif;
+            font-feature-settings: normal
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=button],
+        [type=reset],
+        [type=submit],
+        button {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden] {
+            display: none
+        }
+
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia:
+        }
+
+        ::-webkit-backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia:
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mx-6 {
+            margin-left: 1.5rem;
+            margin-right: 1.5rem
+        }
+
+        .ml-4 {
+            margin-left: 1rem
+        }
+
+        .mt-16 {
+            margin-top: 4rem
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .-mt-px {
+            margin-top: -1px
+        }
+
+        .mr-1 {
+            margin-right: 0.25rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .inline-flex {
+            display: inline-flex
+        }
+
+        .grid {
+            display: grid
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-7 {
+            height: 1.75rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .h-5 {
+            height: 1.25rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-auto {
+            width: auto
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-7 {
+            width: 1.75rem
+        }
+
+        .w-6 {
+            width: 1.5rem
+        }
+
+        .w-5 {
+            width: 1.25rem
+        }
+
+        .max-w-7xl {
+            max-width: 80rem
+        }
+
+        .shrink-0 {
+            flex-shrink: 0
+        }
+
+        .scale-100 {
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr))
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .gap-6 {
+            gap: 1.5rem
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .self-center {
+            align-self: center
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .bg-gray-100 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(243 244 246 / var(--tw-bg-opacity))
+        }
+
+        .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+        }
+
+        .bg-red-50 {
+            --tw-bg-opacity: 1;
+            background-color: rgb(254 242 242 / var(--tw-bg-opacity))
+        }
+
+        .bg-dots-darker {
+            background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(0,0,0,0.07)'/%3E%3C/svg%3E")
+        }
+
+        .from-gray-700\/50 {
+            --tw-gradient-from: rgb(55 65 81 / 0.5);
+            --tw-gradient-to: rgb(55 65 81 / 0);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .via-transparent {
+            --tw-gradient-to: rgb(0 0 0 / 0);
+            --tw-gradient-stops: var(--tw-gradient-from), transparent, var(--tw-gradient-to)
+        }
+
+        .bg-center {
+            background-position: center
+        }
+
+        .stroke-red-500 {
+            stroke: #ef4444
+        }
+
+        .stroke-gray-400 {
+            stroke: #9ca3af
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-right {
+            text-align: right
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .leading-relaxed {
+            line-height: 1.625
+        }
+
+        .text-gray-600 {
+            --tw-text-opacity: 1;
+            color: rgb(75 85 99 / var(--tw-text-opacity))
+        }
+
+        .text-gray-900 {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity))
+        }
+
+        .text-gray-500 {
+            --tw-text-opacity: 1;
+            color: rgb(107 114 128 / var(--tw-text-opacity))
+        }
+
+        .underline {
+            -webkit-text-decoration-line: underline;
+            text-decoration-line: underline
+        }
+
+        .antialiased {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-gray-500\/20 {
+            --tw-shadow-color: rgb(107 114 128 / 0.2);
+            --tw-shadow: var(--tw-shadow-colored)
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .selection\:bg-red-500 *::selection {
+            --tw-bg-opacity: 1;
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity))
+        }
+
+        .selection\:text-white *::selection {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity))
+        }
+
+        .selection\:bg-red-500::selection {
+            --tw-bg-opacity: 1;
+            background-color: rgb(239 68 68 / var(--tw-bg-opacity))
+        }
+
+        .selection\:text-white::selection {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity))
+        }
+
+        .hover\:text-gray-900:hover {
+            --tw-text-opacity: 1;
+            color: rgb(17 24 39 / var(--tw-text-opacity))
+        }
+
+        .hover\:text-gray-700:hover {
+            --tw-text-opacity: 1;
+            color: rgb(55 65 81 / var(--tw-text-opacity))
+        }
+
+        .focus\:rounded-sm:focus {
+            border-radius: 0.125rem
+        }
+
+        .focus\:outline:focus {
+            outline-style: solid
+        }
+
+        .focus\:outline-2:focus {
+            outline-width: 2px
+        }
+
+        .focus\:outline-red-500:focus {
+            outline-color: #ef4444
+        }
+
+        .group:hover .group-hover\:stroke-gray-600 {
+            stroke: #4b5563
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .motion-safe\:hover\:scale-\[1\.01\]:hover {
+                --tw-scale-x: 1.01;
+                --tw-scale-y: 1.01;
+                transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dark\:bg-gray-900 {
+                --tw-bg-opacity: 1;
+                background-color: rgb(17 24 39 / var(--tw-bg-opacity))
+            }
+
+            .dark\:bg-gray-800\/50 {
+                background-color: rgb(31 41 55 / 0.5)
+            }
+
+            .dark\:bg-red-800\/20 {
+                background-color: rgb(153 27 27 / 0.2)
+            }
+
+            .dark\:bg-dots-lighter {
+                background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E")
+            }
+
+            .dark\:bg-gradient-to-bl {
+                background-image: linear-gradient(to bottom left, var(--tw-gradient-stops))
+            }
+
+            .dark\:stroke-gray-600 {
+                stroke: #4b5563
+            }
+
+            .dark\:text-gray-400 {
+                --tw-text-opacity: 1;
+                color: rgb(156 163 175 / var(--tw-text-opacity))
+            }
+
+            .dark\:text-white {
+                --tw-text-opacity: 1;
+                color: rgb(255 255 255 / var(--tw-text-opacity))
+            }
+
+            .dark\:shadow-none {
+                --tw-shadow: 0 0 #0000;
+                --tw-shadow-colored: 0 0 #0000;
+                box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+            }
+
+            .dark\:ring-1 {
+                --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+                --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+                box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
+            }
+
+            .dark\:ring-inset {
+                --tw-ring-inset: inset
+            }
+
+            .dark\:ring-white\/5 {
+                --tw-ring-color: rgb(255 255 255 / 0.05)
+            }
+
+            .dark\:hover\:text-white:hover {
+                --tw-text-opacity: 1;
+                color: rgb(255 255 255 / var(--tw-text-opacity))
+            }
+
+            .group:hover .dark\:group-hover\:stroke-gray-400 {
+                stroke: #9ca3af
+            }
+        }
+
+        @media (min-width: 640px) {
+            .sm\:fixed {
+                position: fixed
+            }
+
+            .sm\:top-0 {
+                top: 0px
+            }
+
+            .sm\:right-0 {
+                right: 0px
+            }
+
+            .sm\:ml-0 {
+                margin-left: 0px
+            }
+
+            .sm\:flex {
+                display: flex
+            }
+
+            .sm\:items-center {
+                align-items: center
+            }
+
+            .sm\:justify-center {
+                justify-content: center
+            }
+
+            .sm\:justify-between {
+                justify-content: space-between
+            }
+
+            .sm\:text-left {
+                text-align: left
+            }
+
+            .sm\:text-right {
+                text-align: right
+            }
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:gap-8 {
+                gap: 2rem
+            }
+
+            .lg\:p-8 {
+                padding: 2rem
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="index.html">SMKN 1 Cirebon</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="frontend/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+
+            <nav id="navbar" class="navbar">
+                @if (Route::has('login'))
+                    <ul>
+                        @auth
+                            <li><a href="{{ url('/dashboard') }}" class="getstarted">Dashboard</a>
+                            </li>
+                        @else
+                            <li><a href="{{ route('login') }}" class="getstarted">Log
+                                    in</a></li>
+
+                            @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}" class="getstarted">Register</a>
+                                </li>
+                            @endif
+                        @endauth
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                @endif
+            </nav>
+
+        </div>
+
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container" data-aos="fade-up">
+            <h1>Welcome to SMKN 1 Cirebon</h1>
+            <h2>Untuk membuat surat izin keluar sekolah bisa mengikuti Langkah-langkah dibawah ini</h2>
+            <a href="#cta" class="btn-get-started scrollto">Get Started</a>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container" style="margin-top: 130px;">
+                <div
+                    class="col-lg-6 pt-3 pt-lg-0 content d-flex align-items-center justify-content-center flex-column gap-3">
+                    <h3>Langkah-langkah membuat surat izin keluar sekolah</h3>
+                    <ul>
+                        <li><i class="bx bx-right-arrow"></i> Isi surat izin keluar sekolah yang sudah disediakan</li>
+                        <li><i class="bx bx-right-arrow"></i> Jika sudah mengisi, lalu datang ke lobby untuk
+                            mengkonfirmasi kepada guru piket</li>
+                        <li><i class="bx bx-right-arrow"></i> Jika guru piket menyetujui surat izin kalian lalu meminta
+                            surat izin keluar sekolah</li>
+                        <li><i class="bx bx-right-arrow"></i> Jika sudah menerima surat izin keluar sekolah lalu berikan
+                            surat izin keluar sekolah kepada satpam</li>
+                    </ul>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta ">
+            <div class="container" data-aos="fade-in">
+
+                <div class="text-center">
+                    <h3>Link pembuatan surat izin keluar sekolah</h3>
+                    <p>Untuk membuat surat izin keluar sekolah klik dibawah ini</p>
+                    <a class="cta-btn" href="#">Call To Action</a>
+                </div>
+
+            </div>
+        </section><!-- End Cta Section -->
+        <section id="cta" class="about">
+            <div class="container" style="margin-top: 50px;">
+                <div class="text-center pt-4">
+                    <h3>Surat Izin</h3>
+                    <p>Aplikasi berbasis web ini merupakan inovasi unggulan SMKN 1 Cirebon. Inovasi ini mempermudah
+                        prosedural izin keluar sekolah bagi siswa sekaligus sebagai media kontrol bagi guru terhadap
+                        kedisiplinan para siswa. <br>
+                        <br>
+                        Dengan adanya inovasi ini, pengurusan izin keluar sekolah sekarang lebih mudah, cepat,
+                        transparan, paperless dan termonitor. Benefits dan uses yang diperoleh adalah meningkatnya
+                        kedisiplinan siswa sekolah dalam komitmen mewujudkan kedisiplinan.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="container">
+
+            <div class="section-title pt-5" data-aos="fade-up">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="icon-box" data-aos="fade-up">
+                        <div class="icon"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
+                        <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="icon-box" data-aos="fade-up">
+                        <div class="icon"><i class="bi bi-book" style="color: #e9bf06;"></i></div>
+                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat tarad limino ata</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
+                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                            dolore eu fugiat nulla pariatur</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
+                        <h4 class="title"><a href="">Magni Dolores</a></h4>
+                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-globe" style="color: #d6ff22;"></i></div>
+                        <h4 class="title"><a href="">Nemo Enim</a></h4>
+                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum deleniti atque</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bi bi-clock" style="color: #4680ff;"></i></div>
+                        <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+                        <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+                            tempore, cum soluta nobis est eligendi</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </section>End Services Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Jl. Perjuangan By Pass <br>
+                            Sunyaragi, Cirebon 45132<br>
+                            Indonesia <br>
+                            <strong>Telp & Fax:</strong> +62-0231-480202<br>
+                            <strong>Email:</strong> info@smkn1-cirebon.sch.id<br>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Social media</h4>
+                        <div class="social-links">
+                            <a href="https://www.youtube.com/@smknegeri1cirebonofficial472" target="_blank"
+                                class="twitter mr-2"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.facebook.com/smknsatucirebon" target="_blank" class="facebook"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/smkn1cirebon/" target="_blank" class="instagram"><i
+                                    class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Alamat</h4>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15849.134770711998!2d108.51870695541989!3d-6.73520399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1df0e55b2ed3%3A0x51cf481547b4b319!2sSMK%20Negeri%201%20Cirebon!5e0!3m2!1sid!2sid!4v1681484764193!5m2!1sid!2sid"
+                            width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Serenity</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/serenity-bootstrap-corporate-template/ -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="frontend/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="frontend/vendor/aos/aos.js"></script>
+    <script src="frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="frontend/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="frontend/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="frontend/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="frontend/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="frontend/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="frontend/js/main.js"></script>
+</body>
+
+</html>
