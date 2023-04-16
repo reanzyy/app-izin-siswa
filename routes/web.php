@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\DispensasiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\DispensasiController;
+use App\Http\Controllers\GuruController;
+use App\Http\Controllers\JamPelajaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.index');
+    return view('index');
 });
 
 Route::middleware([
@@ -28,4 +31,15 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/dispensasi', [DispensasiController::class, 'index'])->name('dispensasi.index');
+Route::resource('dispensasi', DispensasiController::class)->shallow()->only([
+    'index', 'create', 'store', 'show', 'destroy',
+]);
+Route::resource('kelas', KelasController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
+]);
+Route::resource('jam', JamPelajaranController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
+]);
+Route::resource('guru', GuruController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
+]);

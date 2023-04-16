@@ -1,40 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl leading-tight">
-            {{ __('Dispensasi') }}
+            {{ __('Kelas') }}
         </h2>
     </x-slot>
 
     <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-4 bg-white sm:p-6 ">
+            <a href="{{ route('kelas.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
             <table id="tabel-data" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Nama</th>
+                        <th width="25">No</th>
                         <th>Kelas</th>
-                        <th>Mulai jam ke</th>
-                        <th>Kembali jam ke</th>
-                        <th>Plat no</th>
-                        <th>Status</th>
+                        <th>Jurusan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dispensasi as $item)
+                    @foreach ($kelas as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->nama_siswa }}</td>
-                            <td>{{ $item->kelas->nama_kelas }}</td>
-                            <td>{{ $item->jammulai->jam }}</td>
-                            <td>{{ $item->jamkembali->jam }}</td>
-                            <td>{{ $item->plat_no }}</td>
-                            <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
+                            <td>{{ $item->nama_kelas }}</td>
+                            <td>{{ $item->jurusan->nama_jurusan }}</td>
                             <td>
                                 <div class="flex gap-1">
-                                    <a href="{{ route('dispensasi.show', $item->id) }}"
-                                        class="btn btn-primary btn-sm">Detail</a>
-                                    <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
+                                    <a href="{{ route('kelas.edit', $item->id) }}"
+                                        class="btn btn-warning btn-sm">Edit</a>
+                                    <form action="{{ route('kelas.destroy', $item->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>

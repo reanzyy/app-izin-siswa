@@ -9,17 +9,21 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ url('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ url('adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('adminlte/css/adminlte.min.css') }}">
+    <!-- Datatable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -151,7 +155,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../kelas.html" class="nav-link">
+                                    <a href="{{ route('kelas.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'kelas.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-layer-group"></i>
                                         <p>
                                             Kelas
@@ -159,7 +164,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../jampelajaran.html" class="nav-link">
+                                    <a href="{{ route('jam.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'jam.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-clock"></i>
                                         <p>
                                             Jam Pelajaran
@@ -167,7 +173,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../gurupiket.html" class="nav-link">
+                                    <a href="{{ route('guru.index') }}"
+                                        class="nav-link {{ \Route::current()->getname() == 'guru.index' ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-user-friends"></i>
                                         <p>
                                             Guru Piket
@@ -250,11 +257,23 @@
     <!-- jQuery -->
     <script src="{{ url('adminlte/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ url('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="{{ url('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ url('adminlte/js/adminlte.min.js') }}"></script>
+    <!-- Datatables -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tabel-data').DataTable();
+        });
+    </script>
+
 </body>
 
 </html>
