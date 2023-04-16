@@ -22,12 +22,22 @@
                         <td>{{ $item->nama_guru }}</td>
                         <td>
                             <div class="flex gap-1">
+
                                 <a href="{{ route('guru.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('guru.destroy', $item->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                </form>
+
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    Delete
+                                </button>
+
+                                <x-delete-modal>
+                                    <form action="{{ route('guru.destroy', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
+                                </x-delete-modal>
+
                             </div>
                         </td>
                     </tr>

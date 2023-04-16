@@ -29,16 +29,30 @@
                             <td>{{ $item->jammulai->jam }}</td>
                             <td>{{ $item->jamkembali->jam }}</td>
                             <td>{{ $item->plat_no }}</td>
-                            <td><span class="badge text-bg-warning">{{ $item->status }}</span></td>
+                            <td>
+                                <span
+                                    class="badge {{ $item->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}
+                                </span>
+                            </td>
                             <td>
                                 <div class="flex gap-1">
+
                                     <a href="{{ route('dispensasi.show', $item->id) }}"
                                         class="btn btn-primary btn-sm">Detail</a>
-                                    <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                    </form>
+
+                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        Delete
+                                    </button>
+
+                                    <x-delete-modal>
+                                        <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    </x-delete-modal>
+
                                 </div>
                             </td>
                         </tr>
