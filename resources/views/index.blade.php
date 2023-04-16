@@ -847,14 +847,29 @@
                 <!-- <a href="index.html"><img src="frontend/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
 
+
             <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="getstarted" href="about.html">Login Sebagai Guru</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+                @if (Route::has('login'))
+                    <ul>
+                        @auth
+                            <li><a href="{{ url('/dashboard') }}" class="getstarted">Dashboard</a>
+                            </li>
+                        @else
+                            <li><a href="{{ route('login') }}" class="getstarted">Log
+                                    in</a></li>
+
+                            @if (Route::has('register'))
+                                <li><a href="{{ route('register') }}" class="getstarted">Register</a>
+                                </li>
+                            @endif
+                        @endauth
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                @endif
+            </nav>
 
         </div>
+
     </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
