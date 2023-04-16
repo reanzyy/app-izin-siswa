@@ -23,7 +23,7 @@
     <link href="frontend/css/style.css" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <style>
+    <style>
         /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
         *,
         ::after,
@@ -834,7 +834,7 @@
                 padding: 2rem
             }
         }
-    </style> --}}
+    </style>
 </head>
 
 <body class="antialiased">
