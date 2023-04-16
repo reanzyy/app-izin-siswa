@@ -52,7 +52,20 @@
                             </div>
                         </div>
 
-                        <div class="col-6"></div>
+                        <div class="col-4">
+                            <div class="mb-3">
+                                <label class="form-label">Kelas</label>
+                                <select name="id_jurusan" class="form-select">
+                                    @foreach ($jurusan as $jurusanitem)
+                                        <option value="{{ $jurusanitem->id }}">
+                                            {{ $jurusanitem->nama_jurusan }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-4"></div>
 
                         <div class="col-4">
                             <div class="mb-3">
@@ -85,7 +98,7 @@
                         <div class="col-3">
                             <div class="mb-3">
                                 <label class="form-label">Keperluan</label>
-                                <textarea name="keperluan" class="form-control" rows="3"></textarea>
+                                <textarea name="keperluan" class="form-control" style="width: 850px" rows="3"></textarea>
                                 @error('keperluan')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

@@ -5,6 +5,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\DispensasiController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JamPelajaranController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,5 @@ Route::resource('jam', JamPelajaranController::class)->only([
 Route::resource('guru', GuruController::class)->only([
     'index', 'create', 'store', 'edit', 'update', 'destroy'
 ]);
+
+Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');

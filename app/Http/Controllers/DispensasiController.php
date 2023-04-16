@@ -29,9 +29,9 @@ class DispensasiController extends Controller
     {
         $kelas = Kelas::get();
         $jam = JamPelajaran::get();
-        // $jurusan = Jurusan::get();
+        $jurusan = Jurusan::get();
 
-        return view('formulir', compact('kelas', 'jam'));
+        return view('formulir', compact('kelas', 'jam', 'jurusan'));
     }
 
     /**
@@ -50,7 +50,7 @@ class DispensasiController extends Controller
             'keperluan' => $request->keperluan,
             'email' => $request->email,
             'plat_no' => $request->plat_no,
-            'status' => $request->status,
+            // 'status' => $request->status,
         ]);
 
         return redirect('/');

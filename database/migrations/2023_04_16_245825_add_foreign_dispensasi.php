@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('dispensasi', function (Blueprint $table) {
             $table->foreignId('id_kelas')->constrained('kelas');
-            // $table->foreignId('id_jurusan')->constrained('jurusan');
+            $table->foreignId('id_jurusan')->constrained('jurusan');
             $table->foreignId('jam_mulai')->constrained('jam_pelajaran');
             $table->foreignId('jam_kembali')->constrained('jam_pelajaran');
         });

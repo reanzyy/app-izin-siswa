@@ -31,6 +31,7 @@
             box-sizing: border-box;
             border-width: 0;
             border-style: solid;
+            font-family: Figtree, sans-serif;
             border-color: #e5e7eb
         }
 
@@ -885,7 +886,7 @@
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
-            <div class="container" style="margin-top: 130px;">
+            <div class="container p-5" style="margin-top: 130px;">
                 <div
                     class="col-lg-6 pt-3 pt-lg-0 content d-flex align-items-center justify-content-center flex-column gap-3">
                     <h3>Langkah-langkah membuat surat izin keluar sekolah</h3>
@@ -909,7 +910,7 @@
                 <div class="text-center">
                     <h3>Link pembuatan surat izin keluar sekolah</h3>
                     <p>Untuk membuat surat izin keluar sekolah klik dibawah ini</p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <a class="cta-btn" href="{{ route('dispensasi.create') }}">Call To Action</a>
                 </div>
 
             </div>
@@ -929,7 +930,8 @@
                 </div>
             </div>
         </section>
-        <div class="container">
+
+        {{-- <div class="container">
 
             <div class="section-title pt-5" data-aos="fade-up">
                 <h2>Our Services</h2>
@@ -989,7 +991,7 @@
             </div>
 
         </div>
-        </section>End Services Section -->
+        </section>End Services Section --> --}}
 
     </main><!-- End #main -->
 

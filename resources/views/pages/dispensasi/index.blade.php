@@ -13,9 +13,9 @@
                         <th>No</th>
                         <th>Nama</th>
                         <th>Kelas</th>
-                        <th>Mulai jam ke</th>
-                        <th>Kembali jam ke</th>
-                        <th>Plat no</th>
+                        <th>Mulai jam</th>
+                        <th>Kembali jam</th>
+                        <th>Tanggal</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -28,7 +28,7 @@
                             <td>{{ $item->kelas->nama_kelas }}</td>
                             <td>{{ $item->jammulai->jam }}</td>
                             <td>{{ $item->jamkembali->jam }}</td>
-                            <td>{{ $item->plat_no }}</td>
+                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
                             <td>
                                 <span
                                     class="badge {{ $item->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}

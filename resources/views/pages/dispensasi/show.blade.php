@@ -34,6 +34,10 @@
                         <th>{{ $dispensasi->plat_no }}</th>
                     </tr>
                     <tr>
+                        <th>Tanggal</th>
+                        <th>{{ $dispensasi->created_at->format('d/m/Y') }}</th>
+                    </tr>
+                    <tr>
                         <th>Status</th>
                         <th>
                             <span
