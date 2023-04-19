@@ -24,7 +24,7 @@ class Dispensasi extends Model
         // 'waktu_input',
         'email',
         'plat_no',
-        // 'status',
+        'status',
     ];
 
     public function kelas()

@@ -89,4 +89,34 @@ class DispensasiController extends Controller
 
         return redirect('dispensasi');
     }
+
+    public function statusDiterima(Dispensasi $dispensasi)
+    {
+        $data = Dispensasi::where('id', $dispensasi->id)->first();
+
+        $status_sekarang = $data->status;
+
+        if ($status_sekarang == 2) {
+            Dispensasi::where('id', $dispensasi->id)->update([
+                'status' => 1
+            ]);
+        }
+
+        return back();
+    }
+
+    public function statusDitolak(Dispensasi $dispensasi)
+    {
+        $data = Dispensasi::where('id', $dispensasi->id)->first();
+
+        $status_sekarang = $data->status;
+
+        if ($status_sekarang == 2) {
+            Dispensasi::where('id', $dispensasi->id)->update([
+                'status' => 0
+            ]);
+        }
+
+        return back();
+    }
 }

@@ -44,5 +44,6 @@ Route::resource('jam', JamPelajaranController::class)->only([
 Route::resource('guru', GuruController::class)->only([
     'index', 'create', 'store', 'edit', 'update', 'destroy'
 ]);
-
 Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
+Route::get('dispensasi/terima/{dispensasi}', [DispensasiController::class, 'statusDiterima'])->name('dispensasi.statusDiterima');
+Route::get('dispensasi/tolak/{dispensasi}', [DispensasiController::class, 'statusDitolak'])->name('dispensasi.statusDitolak');

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('keperluan');
             $table->string('email');
             $table->string('plat_no')->nullable();
-            $table->bigInteger('status')->default('1');
+            $table->bigInteger('status')->default('2');
             $table->timestamps();
         });
     }

@@ -41,16 +41,29 @@
                         <th>Status</th>
                         <th>
                             <span
-                                class="badge {{ $dispensasi->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $dispensasi->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}
+                                class="badge {{ $dispensasi->status == '2' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $dispensasi->status == '2' ? 'Belum diproses' : 'Diterima' }}
                             </span>
                         </th>
                     </tr>
                     <tr>
                         <th>Aksi</th>
                         <th>
-                            <button class="btn btn-warning btn-sm rounded-full">
-                                <i class="fa fa-print mr-1"></i>Cetak
-                            </button>
+                            @if ($dispensasi->status == 2)
+                                <a href="{{ route('dispensasi.statusDiterima', $dispensasi->id) }}"
+                                    class="btn btn-sm btn-success">Terima</a>
+                                <a href="{{ route('dispensasi.statusDitolak', $dispensasi->id) }}"
+                                    class="btn btn-sm btn-danger">Tolak</a>
+                            @else
+                                @if ($dispensasi->status == 1)
+                                    <button class="btn btn-sm btn-warning">
+                                        <i class="fa fa-print mr-1"></i>Cetak
+                                    </button>
+                                @else
+                                    <button disabled class="btn btn-sm btn-warning">
+                                        <i class="fa fa-print mr-1"></i>Cetak
+                                    </button>
+                                @endif
+                            @endif
                         </th>
                     </tr>
                 </thead>

@@ -16,8 +16,6 @@
     <link href="frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="frontend/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="frontend/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="frontend/css/style.css" rel="stylesheet">
@@ -1053,14 +1051,9 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="frontend/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="frontend/vendor/aos/aos.js"></script>
     <script src="frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="frontend/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="frontend/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="frontend/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="frontend/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="frontend/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
     <script src="frontend/js/main.js"></script>

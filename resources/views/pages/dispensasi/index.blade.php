@@ -31,7 +31,7 @@
                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
                             <td>
                                 <span
-                                    class="badge {{ $item->status == '1' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '1' ? 'Belum diproses' : 'Sudah diproses' }}
+                                    class="badge {{ $item->status == '2' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '2' ? 'Belum diproses' : 'Sudah diproses' }}
                                 </span>
                             </td>
                             <td>
