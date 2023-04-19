@@ -25,10 +25,10 @@
                         <div class="mb-3">
                             <label for="nama" class="form-label">Jurusan</label>
                             <select name="id_jurusan" class="form-select">
-                                <option value="{{ $kela->id }}">{{ $kela->jurusan->nama_jurusan }}</option>
+                                <option value="{{ $kela->id_jurusan }}">{{ $kela->jurusan->nama_jurusan }}</option>
                                 <option disabled>--------------------------</option>
                                 @foreach ($jurusan as $item)
-                                    <option value="{{ $kela->id_jurusan }}">{{ $item->nama_jurusan }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->nama_jurusan }}</option>
                                 @endforeach
                             </select>
                         </div>
