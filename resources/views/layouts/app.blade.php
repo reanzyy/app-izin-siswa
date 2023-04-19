@@ -36,7 +36,6 @@
     <x-banner />
 
     <div class="min-h-screen bg-gray-100">
-        {{-- @livewire('navigation-menu') --}}
 
         <!-- Page Heading -->
 
@@ -138,8 +137,10 @@
                     with font-awesome or any other icon font library -->
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'dashboard' ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                                        class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
+                                        <i
+                                            class="nav-icon
+                                        fas fa-tachometer-alt"></i>
                                         <p>
                                             Dashboard
                                         </p>
@@ -147,7 +148,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('dispensasi.index') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'dispensasi.index' ? 'active' : '' }}">
+                                        class="nav-link {{ request()->is('dispensasi*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-file-medical"></i>
                                         <p>
                                             Dispensasi
@@ -156,7 +157,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('kelas.index') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'kelas.index' ? 'active' : '' }}">
+                                        class="nav-link {{ request()->is('kelas*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-layer-group"></i>
                                         <p>
                                             Kelas
@@ -165,7 +166,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('jam.index') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'jam.index' ? 'active' : '' }}">
+                                        class="nav-link {{ request()->is('jam*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-clock"></i>
                                         <p>
                                             Jam Pelajaran
@@ -174,7 +175,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('guru.index') }}"
-                                        class="nav-link {{ \Route::current()->getname() == 'guru.index' ? 'active' : '' }}">
+                                        class="nav-link {{ request()->is('guru*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-user-friends"></i>
                                         <p>
                                             Guru Piket
@@ -182,7 +183,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('laporan') }}" class="nav-link">
+                                    <a href="{{ route('laporan') }}"
+                                        class="nav-link {{ request()->is('laporan*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-file-alt"></i>
                                         <p>
                                             Laporan
