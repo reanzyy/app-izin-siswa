@@ -1,0 +1,62 @@
+<x-app-layout>
+    <x-slot name='header'>
+        <h2 class="font-semibold text-2xl leading-tight">
+            Dispensasi &raquo; Pilih guru
+        </h2>
+    </x-slot>
+
+    <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
+        <div class="px-4 py-4 bg-white sm:p-6 ">
+            <form action="{{ route('pilihGuru', $dispensasi->id) }}" method="post">
+                @csrf
+                <div class="m-3">
+                    <label class="form-label">Nama Siswa</label>
+                    <input type="hidden" name="sekolah_id" value="1">
+                    <input type="hidden" name="no_d" value="{{ $dispensasi->id }}">
+                    <select class="form-control" disabled>
+                        <option>{{ $dispensasi->nama_siswa }}</option>
+                    </select>
+                </div>
+                <div class="m-3">
+                    <label class="form-label">Pilih guru piket</label>
+                    <select name="id_guru" class="form-control">
+                        @foreach ($guru as $item)
+                            <option value="{{ $item->id }}">
+                            {{ $item->nama_guru }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="m-3">
+
+                    <button type="button" class="btn btn-outline-success float-right" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Cetak</button>
+                    <div class="clear-both"></div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                    <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                                        <span class="text-2xl" aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Anda yakin ingin mencetaknya?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-success">Cetak</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</x-app-layout>

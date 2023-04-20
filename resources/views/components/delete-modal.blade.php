@@ -4,7 +4,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <span class="text-2xl" aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 Anda yakin ingin menghapusnya?

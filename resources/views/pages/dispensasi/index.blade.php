@@ -31,7 +31,18 @@
                             <td>{{ $item->created_at->format('d/m/Y') }}</td>
                             <td>
                                 <span
-                                    class="badge {{ $item->status == '2' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $item->status == '2' ? 'Belum diproses' : 'Sudah diproses' }}
+                                    class="badge @if ($item->status == '2') text-bg-warning @else @if ($item->status == '1') text-bg-success @else @if ($item->status == '0') text-bg-danger @endif @endif @endif">
+                                    @if ($item->status == '2')
+                                        Belum diproses
+                                    @else
+                                        @if ($item->status == '1')
+                                            Diterima
+                                        @else
+                                            @if ($item->status == '0')
+                                                Ditolak
+                                            @endif
+                                        @endif
+                                    @endif
                                 </span>
                             </td>
                             <td>

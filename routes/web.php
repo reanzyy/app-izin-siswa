@@ -44,6 +44,10 @@ Route::resource('jam', JamPelajaranController::class)->only([
 Route::resource('guru', GuruController::class)->only([
     'index', 'create', 'store', 'edit', 'update', 'destroy'
 ]);
+
 Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
-Route::get('dispensasi/terima/{dispensasi}', [DispensasiController::class, 'statusDiterima'])->name('dispensasi.statusDiterima');
-Route::get('dispensasi/tolak/{dispensasi}', [DispensasiController::class, 'statusDitolak'])->name('dispensasi.statusDitolak');
+Route::get('dispensasi/terima/{dispensasi}', [DispensasiController::class, 'statusDiterima'])->name('statusDiterima');
+Route::get('dispensasi/tolak/{dispensasi}', [DispensasiController::class, 'statusDitolak'])->name('statusDitolak');
+Route::get('dispensasi/{dispensasi}/guru', [DispensasiController::class, 'formPilihGuru'])->name('formPilihguru');
+Route::post('dispensasi/{dispensasi}/guru/store', [DispensasiController::class, 'pilihGuru'])->name('pilihGuru');
+Route::get('dispensasi/{dispensasi}/cetak', [DispensasiController::class, 'cetakSurat'])->name('formCetak');

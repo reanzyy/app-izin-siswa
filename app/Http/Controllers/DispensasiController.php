@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cetak;
 use App\Models\Kelas;
 use App\Models\Dispensasi;
+use App\Models\Guru;
 use App\Models\JamPelajaran;
 use App\Models\Jurusan;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,7 +53,6 @@ class DispensasiController extends Controller
             'keperluan' => $request->keperluan,
             'email' => $request->email,
             'plat_no' => $request->plat_no,
-            // 'status' => $request->status,
         ]);
 
         return redirect('/');
@@ -67,10 +69,6 @@ class DispensasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -118,5 +116,35 @@ class DispensasiController extends Controller
         }
 
         return back();
+    }
+
+    public function formPilihGuru(Dispensasi $dispensasi)
+    {
+
+        $guru = Guru::all();
+
+        return view('pages.dispensasi.formpilih', compact('guru', 'dispensasi'));
+    }
+
+    public function pilihGuru(Request $request, Dispensasi $dispensasi)
+    {
+
+        Cetak::create([
+            'id_guru' => $request->id_guru,
+            'no_d' => $request->no_d,
+            'sekolah_id' => $request->sekolah_id,
+        ]);
+
+        return redirect()->route('formCetak', $dispensasi->id);
+    }
+
+    public function cetakSurat(Dispensasi $dispensasi)
+    {
+        // $cetak = Cetak::get();
+
+        $sekolah = Sekolah::all();
+        $cetak = DB::table('Cetak')->where('id')->get();
+
+        return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak', 'sekolah'));
     }
 }

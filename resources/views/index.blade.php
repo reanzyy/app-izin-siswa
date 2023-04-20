@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <!-- Vendor CSS Files -->
 
-    <link href="frontend/vendor/aos/aos.css" rel="stylesheet">
+    {{-- <link href="frontend/vendor/aos/aos.css" rel="stylesheet"> --}}
     <link href="frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -997,9 +997,9 @@
     <footer id="footer">
         <div class="footer-top">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex gap-5">
 
-                    <div class="col-lg-3 col-md-6 footer-contact">
+                    <div class="col-lg-3 col-md-6 footer-contact align-item-center justify-center">
                         <h4>Contact Us</h4>
                         <p>
                             Jl. Perjuangan By Pass <br>
@@ -1012,7 +1012,7 @@
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Social media</h4>
-                        <div class="social-links">
+                        <div class="social-links d-flex gap-2 mt-2">
                             <a href="https://www.youtube.com/@smknegeri1cirebonofficial472" target="_blank"
                                 class="twitter mr-2"><i class="bi bi-youtube"></i></a>
                             <a href="https://www.facebook.com/smknsatucirebon" target="_blank" class="facebook"><i
@@ -1023,7 +1023,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Alamat</h4>
-                        <iframe
+                        <iframe class="mt-2"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15849.134770711998!2d108.51870695541989!3d-6.73520399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1df0e55b2ed3%3A0x51cf481547b4b319!2sSMK%20Negeri%201%20Cirebon!5e0!3m2!1sid!2sid!4v1681484764193!5m2!1sid!2sid"
                             width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -1051,7 +1051,7 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="frontend/vendor/aos/aos.js"></script>
+    {{-- <script src="frontend/vendor/aos/aos.js"></script> --}}
     <script src="frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="frontend/vendor/waypoints/noframework.waypoints.js"></script>
 

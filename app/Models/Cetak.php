@@ -9,7 +9,9 @@ class Cetak extends Model
 {
     use HasFactory;
 
+    protected $table = 'cetak';
+
     protected $fillable = [
-        'waktu_cetak',
+        'id_guru', 'no_d', 'sekolah_id'
     ];
 }

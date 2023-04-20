@@ -41,7 +41,18 @@
                         <th>Status</th>
                         <th>
                             <span
-                                class="badge {{ $dispensasi->status == '2' ? 'text-bg-warning' : 'text-bg-success' }}">{{ $dispensasi->status == '2' ? 'Belum diproses' : 'Diterima' }}
+                                class="badge @if ($dispensasi->status == '2') text-bg-warning @else @if ($dispensasi->status == '1') text-bg-success @else @if ($dispensasi->status == '0') text-bg-danger @endif @endif @endif">
+                                @if ($dispensasi->status == '2')
+                                    Belum diproses
+                                @else
+                                    @if ($dispensasi->status == '1')
+                                        Diterima
+                                    @else
+                                        @if ($dispensasi->status == '0')
+                                            Ditolak
+                                        @endif
+                                    @endif
+                                @endif
                             </span>
                         </th>
                     </tr>
@@ -49,21 +60,23 @@
                         <th>Aksi</th>
                         <th>
                             @if ($dispensasi->status == 2)
-                                <a href="{{ route('dispensasi.statusDiterima', $dispensasi->id) }}"
+                                <a href="{{ route('statusDiterima', $dispensasi->id) }}"
                                     class="btn btn-sm btn-success">Terima</a>
-                                <a href="{{ route('dispensasi.statusDitolak', $dispensasi->id) }}"
+                                <a href="{{ route('statusDitolak', $dispensasi->id) }}"
                                     class="btn btn-sm btn-danger">Tolak</a>
                             @else
                                 @if ($dispensasi->status == 1)
-                                    <button class="btn btn-sm btn-warning">
+                                    <a href="{{ route('formPilihguru', $dispensasi->id) }}"
+                                        class="btn btn-sm btn-warning">
                                         <i class="fa fa-print mr-1"></i>Cetak
-                                    </button>
+                                    </a>
                                 @else
                                     <button disabled class="btn btn-sm btn-warning">
                                         <i class="fa fa-print mr-1"></i>Cetak
                                     </button>
                                 @endif
                             @endif
+
                         </th>
                     </tr>
                 </thead>
