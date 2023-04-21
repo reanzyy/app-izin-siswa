@@ -108,18 +108,6 @@
                         <div class="col-6"></div>
 
                         <div class="col-6">
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="text" name="email" class="form-control">
-                                @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="col-6"></div>
-
-                        <div class="col-6">
                             <div class="mb-4 d-flex flex-column">
                                 <label class="form-label">Plat no</label>
                                 <sup class="mb-2">Kosongkan bila perlu <i class="fa fa-info-circle"></i></sup>

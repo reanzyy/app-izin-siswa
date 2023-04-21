@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dispensasi', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_siswa');
-            $table->text('keperluan');
-            $table->string('plat_no')->nullable();
-            $table->bigInteger('status')->default('2');
-            $table->timestamps();
+        Schema::table('dispensasi', function (Blueprint $table) {
+            $table->foreignId('id_cetak')->nullable()->constrained('cetak');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dispensasi');
+        Schema::table('dispensasi', function (Blueprint $table) {
+            //
+        });
     }
 };

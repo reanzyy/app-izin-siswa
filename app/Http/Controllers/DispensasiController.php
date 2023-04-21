@@ -133,18 +133,27 @@ class DispensasiController extends Controller
             'id_guru' => $request->id_guru,
             'no_d' => $request->no_d,
             'sekolah_id' => $request->sekolah_id,
+            'id_cetak' => $request->id_cetak,
         ]);
+
+        $data = Dispensasi::where('id', $dispensasi->id)->first();
+
+        $cetak = $data->id_cetak;
+
+        if ($cetak == '') {
+            Dispensasi::where('id', $dispensasi->id)->update([
+                'id_cetak' => $dispensasi->id
+            ]);
+        }
 
         return redirect()->route('formCetak', $dispensasi->id);
     }
 
-    public function cetakSurat(Dispensasi $dispensasi)
+    public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)
     {
-        // $cetak = Cetak::get();
 
-        $sekolah = Sekolah::all();
-        $cetak = DB::table('Cetak')->where('id')->get();
+        // $cetak =  Cetak::with('guru', 'sekolah', 'dispensasi')->get();
 
-        return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak', 'sekolah'));
+        return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
     }
 }

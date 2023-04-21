@@ -12,6 +12,7 @@
                 <div class="m-3">
                     <label class="form-label">Nama Siswa</label>
                     <input type="hidden" name="sekolah_id" value="1">
+                    <input type="hidden" name="id_cetak" value="{{ $dispensasi->id }}">
                     <input type="hidden" name="no_d" value="{{ $dispensasi->id }}">
                     <select class="form-control" disabled>
                         <option>{{ $dispensasi->nama_siswa }}</option>
@@ -20,17 +21,31 @@
                 <div class="m-3">
                     <label class="form-label">Pilih guru piket</label>
                     <select name="id_guru" class="form-control">
+                        <option value="">
+                            {{ $dispensasi->id_cetak == '' ? 'Pilih Guru Piket' : $dispensasi->cetak->guru->nama_guru }}
+                        </option>
+                        <option disabled>
+                            ---------------
+                        </option>
                         @foreach ($guru as $item)
                             <option value="{{ $item->id }}">
-                            {{ $item->nama_guru }}</option>
+                                {{ $item->nama_guru }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="m-3">
 
-                    <button type="button" class="btn btn-outline-success float-right" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Cetak</button>
-                    <div class="clear-both"></div>
+                    @if (!$dispensasi->id_cetak == '')
+                        <a href="{{ route('formCetak', $dispensasi->id) }}"
+                            class="btn btn-sm btn-primary float-right">Lihat
+                            cetakan</a>
+                        <div class="clear-both"></div>
+                    @else
+                        <button type="button" class="btn btn-sm btn-outline-success float-right" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Cetak</button>
+                        <div class="clear-both"></div>
+                    @endif
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"

@@ -45,12 +45,11 @@
     <div class="wrapper">
         <div class="header">
             <img src="/adminlte/img/neper.png" style="margin-bottom: 10px" class="logo" width="100" alt="">
-            @foreach ($sekolah as $item)
-                <h3 style="margin-bottom: 5px">{{ $item->nama_sekolah }}</h3>
-                <p style="margin-bottom: 10px" class="alamat">{{ $item->alamat_sekolah }} No: Telp
-                    {{ $item->telepon_sekolah }}
-                </p>
-            @endforeach
+
+            <h3>{{ $dispensasi->cetak->sekolah->nama_sekolah }}</h3>
+            <p style="margin-bottom: 5px;">{{ $dispensasi->cetak->sekolah->alamat_sekolah }} No telp
+                {{ $dispensasi->cetak->sekolah->telepon_sekolah }}</p>
+
         </div>
         <hr style="margin-bottom: 10px">
         <table>
@@ -83,7 +82,10 @@
         <div style="text-align: right;">
             <p>Cirebon, {{ $dispensasi->created_at->format('d M Y') }}</p>
             <p>Guru piket,</p>
-            {{-- {{ $cetak->id_guru }} --}}
+            <br>
+            <br>
+            <br>
+            <td> {{ $dispensasi->cetak->guru->nama_guru }}</td>
         </div>
     </div>
 </body>

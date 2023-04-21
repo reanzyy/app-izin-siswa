@@ -21,9 +21,9 @@ class Dispensasi extends Model
         'jam_mulai',
         'jam_kembali',
         'keperluan',
-        'email',
         'plat_no',
         'status',
+        'id_cetak',
     ];
 
     public function kelas()
@@ -41,5 +41,9 @@ class Dispensasi extends Model
     public function jamkembali()
     {
         return $this->belongsTo(JamPelajaran::class, 'jam_kembali', 'id');
+    }
+    public function cetak()
+    {
+        return $this->belongsTo(Cetak::class, 'id_cetak', 'id');
     }
 }
