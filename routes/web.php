@@ -46,6 +46,7 @@ Route::resource('guru', GuruController::class)->only([
 ]);
 
 Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
+Route::get('cetak-laporan/{txtTglAwal}/{txtTglAkhir}', [LaporanController::class, 'cetakLaporan'])->name('cetakLaporan');
 Route::get('dispensasi/terima/{dispensasi}', [DispensasiController::class, 'statusDiterima'])->name('statusDiterima');
 Route::get('dispensasi/tolak/{dispensasi}', [DispensasiController::class, 'statusDitolak'])->name('statusDitolak');
 Route::get('dispensasi/{dispensasi}/guru', [DispensasiController::class, 'formPilihGuru'])->name('formPilihguru');
