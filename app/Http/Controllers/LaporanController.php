@@ -14,7 +14,7 @@ class LaporanController extends Controller
     public function cetakLaporan($txtTglAwal, $txtTglAkhir){
         // dd(["Awal : ".$txtTglAwal,"Akhir" .$txtTglAkhir]);
 
-        $lap = Cetak::with('dispensasi', 'guru')->whereBetween('created_at',[$txtTglAwal, $txtTglAkhir])->get();
+        $lap = Cetak::with('dispensasi', 'guru')->whereBetween('created_at',[$txtTglAwal, $txtTglAkhir])->latest()->get();
 
         return view('pages.laporan.cetak', compact('lap'));
     }
