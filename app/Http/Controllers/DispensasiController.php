@@ -8,9 +8,7 @@ use App\Models\Dispensasi;
 use App\Models\Guru;
 use App\Models\JamPelajaran;
 use App\Models\Jurusan;
-use App\Models\Sekolah;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DispensasiController extends Controller
 {
@@ -53,6 +51,7 @@ class DispensasiController extends Controller
             'keperluan' => $request->keperluan,
             'email' => $request->email,
             'plat_no' => $request->plat_no,
+            'id_cetak' => $request->id_cetak,
         ]);
 
         return redirect('/');
@@ -64,18 +63,6 @@ class DispensasiController extends Controller
     public function show(Dispensasi $dispensasi)
     {
         return view('pages.dispensasi.show', compact('dispensasi'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
     }
 
     /**
@@ -111,7 +98,8 @@ class DispensasiController extends Controller
 
         if ($status_sekarang == 2) {
             Dispensasi::where('id', $dispensasi->id)->update([
-                'status' => 0
+                'status' => 0,
+                'id_cetak' => 1,
             ]);
         }
 
@@ -151,8 +139,6 @@ class DispensasiController extends Controller
 
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)
     {
-
-        // $cetak =  Cetak::with('guru', 'sekolah', 'dispensasi')->get();
 
         return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
     }
