@@ -8,9 +8,7 @@ use App\Models\Dispensasi;
 use App\Models\Guru;
 use App\Models\JamPelajaran;
 use App\Models\Jurusan;
-use App\Models\Sekolah;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DispensasiController extends Controller
 {
@@ -152,7 +150,7 @@ class DispensasiController extends Controller
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)
     {
 
-        // $cetak =  Cetak::with('guru', 'sekolah', 'dispensasi')->get();
+        $cetak =  Cetak::with('guru', 'dispensasi')->get();
 
         return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
     }

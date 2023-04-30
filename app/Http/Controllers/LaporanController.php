@@ -11,11 +11,16 @@ class LaporanController extends Controller
     {
         return view('pages.laporan.index');
     }
-    public function cetakLaporan($txtTglAwal, $txtTglAkhir){
-        // dd(["Awal : ".$txtTglAwal,"Akhir" .$txtTglAkhir]);
+    public function cetakLaporan(Request $request, $txtTglAwal, $txtTglAkhir)
+    {
 
-        $lap = Cetak::with('dispensasi', 'guru')->whereBetween('created_at',[$txtTglAwal, $txtTglAkhir])->latest()->get();
+        $validation = $request->validate([
+            'txtTglAwal' => $request->txtTglAwal,
+            'txtTglAkhir' => $request->txtTglAkhir,
+        ]);
 
-        return view('pages.laporan.cetak', compact('lap'));
+        $lap = Cetak::with('dispensasi', 'guru')->whereBetween('created_at', [$txtTglAwal, $txtTglAkhir])->latest()->get();
+
+        return view('pages.laporan.cetak', compact('lap', 'validation'));
     }
 }
