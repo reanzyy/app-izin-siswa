@@ -15,7 +15,7 @@
     {{-- <link href="frontend/vendor/aos/aos.css" rel="stylesheet"> --}}
     <link href="frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="frontend/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="frontend/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="frontend/vendor/boxicons/css/boxicons.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="frontend/css/style.css" rel="stylesheet">
@@ -887,12 +887,12 @@
                     class="col-lg-6 pt-3 pt-lg-0 content d-flex align-items-center justify-content-center flex-column gap-3">
                     <h3>Langkah-langkah membuat surat izin keluar sekolah</h3>
                     <ul>
-                        <li><i class="bx bx-right-arrow"></i> Isi surat izin keluar sekolah yang sudah disediakan</li>
-                        <li><i class="bx bx-right-arrow"></i> Jika sudah mengisi, lalu datang ke lobby untuk
+                        <li><i class="bi bi-caret-right-fill"></i>Isi surat izin keluar sekolah yang sudah disediakan</li>
+                        <li><i class="bi bi-caret-right-fill"></i>Jika sudah mengisi, lalu datang ke lobby untuk
                             mengkonfirmasi kepada guru piket</li>
-                        <li><i class="bx bx-right-arrow"></i> Jika guru piket menyetujui surat izin kalian lalu meminta
+                        <li><i class="bi bi-caret-right-fill"></i>Jika guru piket menyetujui surat izin kalian lalu meminta
                             surat izin keluar sekolah</li>
-                        <li><i class="bx bx-right-arrow"></i> Jika sudah menerima surat izin keluar sekolah lalu berikan
+                        <li><i class="bi bi-caret-right-fill"></i>Jika sudah menerima surat izin keluar sekolah lalu berikan
                             surat izin keluar sekolah kepada satpam</li>
                     </ul>
                 </div>
@@ -913,7 +913,7 @@
         </section><!-- End Cta Section -->
         <section id="cta" class="about">
             <div class="container" style="margin-top: 50px;">
-                <div class="text-center pt-4">
+                <div class="text-center p-4">
                     <h3>Surat Izin</h3>
                     <p>Aplikasi berbasis web ini merupakan inovasi unggulan SMKN 1 Cirebon. Inovasi ini mempermudah
                         prosedural izin keluar sekolah bagi siswa sekaligus sebagai media kontrol bagi guru terhadap
