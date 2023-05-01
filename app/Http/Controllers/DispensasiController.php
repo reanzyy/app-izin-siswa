@@ -91,8 +91,13 @@ class DispensasiController extends Controller
         return back();
     }
 
-    public function statusDitolak(Dispensasi $dispensasi)
+    public function statusDitolak(Request $request, Dispensasi $dispensasi)
     {
+        Cetak::create([
+            'no_d' => $dispensasi->id,
+            'sekolah_id' => 1,
+        ]);
+
         $data = Dispensasi::where('id', $dispensasi->id)->first();
 
         $status_sekarang = $data->status;
@@ -122,7 +127,6 @@ class DispensasiController extends Controller
             'id_guru' => $request->id_guru,
             'no_d' => $request->no_d,
             'sekolah_id' => $request->sekolah_id,
-            'id_cetak' => $request->id_cetak,
         ]);
 
         $data = Dispensasi::where('id', $dispensasi->id)->first();
@@ -135,7 +139,7 @@ class DispensasiController extends Controller
             ]);
         }
 
-        return redirect()->route('formCetak', $dispensasi->id);
+        return back();
     }
 
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)

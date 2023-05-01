@@ -20,7 +20,7 @@
                 <th>Mulai Jam Ke</th>
                 <th>Kembali Jam Ke</th>
                 <th>Keperluan</th>
-                <th>Guru Piket</th>
+                {{-- <th>Guru Piket</th> --}}
                 <th>Tanggal</th>
             </tr>
             @foreach ($lap as $item)
@@ -32,7 +32,7 @@
                     <td>{{ $item->dispensasi->jammulai->jam }}</td>
                     <td>{{ $item->dispensasi->jamkembali->jam }}</td>
                     <td>{{ $item->dispensasi->keperluan }}</td>
-                    <td>{{ $item->guru->nama_guru }}</td>
+                    {{-- <td>{{ $item->guru->nama_guru }}</td> --}}
                     <td>{{ $item->created_at->format('d/m/Y') }}</td>
                 </tr>
             @endforeach
