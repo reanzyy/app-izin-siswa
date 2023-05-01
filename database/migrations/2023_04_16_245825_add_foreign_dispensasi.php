@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('dispensasi', function (Blueprint $table) {
-            $table->foreignId('id_kelas')->constrained('kelas');
-            $table->foreignId('id_jurusan')->constrained('jurusan');
-            $table->foreignId('jam_mulai')->constrained('jam_pelajaran');
-            $table->foreignId('jam_kembali')->constrained('jam_pelajaran');
+            $table->foreignId('id_kelas')->constrained('kelas')->onDelete('cascade');
+            $table->foreignId('id_jurusan')->constrained('jurusan')->onDelete('cascade');
+            $table->foreignId('jam_mulai')->constrained('jam_pelajaran')->onDelete('cascade');
+            $table->foreignId('jam_kembali')->constrained('jam_pelajaran')->onDelete('cascade');
         });
     }
 

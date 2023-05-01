@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cetak', function (Blueprint $table) {
-            $table->foreignId('sekolah_id')->constrained('sekolah');
-            $table->foreignId('no_d')->constrained('dispensasi');
-            $table->foreignId('id_guru')->constrained('guru');
+            $table->foreignId('sekolah_id')->constrained('sekolah')->onDelete('cascade');
+            $table->foreignId('no_d')->constrained('dispensasi')->onDelete('cascade');
+            $table->foreignId('id_guru')->constrained('guru')->onDelete('cascade');
         });
     }
 

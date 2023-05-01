@@ -18,7 +18,7 @@ class DispensasiController extends Controller
     public function index()
     {
 
-        $dispensasi = Dispensasi::with('kelas', 'jurusan', 'jammulai', 'jamkembali')->orderby('id', 'desc')->get();
+        $dispensasi = Dispensasi::with('kelas', 'jurusan', 'jammulai', 'jamkembali')->latest()->get();
 
         return view('pages.dispensasi.index', compact('dispensasi'));
     }
@@ -41,18 +41,19 @@ class DispensasiController extends Controller
     public function store(Request $request)
     {
 
-
-        Dispensasi::create([
-            'nama_siswa' => $request->nama_siswa,
-            'id_kelas' => $request->id_kelas,
-            'id_jurusan' => $request->id_jurusan,
-            'jam_mulai' => $request->jam_mulai,
-            'jam_kembali' => $request->jam_kembali,
-            'keperluan' => $request->keperluan,
-            'email' => $request->email,
-            'plat_no' => $request->plat_no,
-            'id_cetak' => $request->id_cetak,
+        $validate = $request->validate([
+            'nama_siswa' => 'required|string|min:3',
+            'id_kelas' => 'required',
+            'id_jurusan' => 'required',
+            'jam_mulai' => 'required',
+            'jam_kembali' => 'required',
+            'keperluan' => 'required|string|min:3',
+            // 'plat_no' => '',
+            // 'id_cetak' => 'required',
         ]);
+
+
+        Dispensasi::create($validate);
 
         return redirect('/');
     }
