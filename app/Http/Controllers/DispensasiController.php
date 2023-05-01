@@ -140,6 +140,8 @@ class DispensasiController extends Controller
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)
     {
 
+        $cetak =  Cetak::with('guru', 'dispensasi')->get();
+        
         return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
     }
 }
