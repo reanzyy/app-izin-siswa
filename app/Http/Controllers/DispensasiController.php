@@ -141,7 +141,7 @@ class DispensasiController extends Controller
     {
 
         $cetak =  Cetak::with('guru', 'dispensasi')->get();
-        
+
         return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
     }
 }
