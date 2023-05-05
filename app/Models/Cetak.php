@@ -12,13 +12,9 @@ class Cetak extends Model
     protected $table = 'cetak';
 
     protected $fillable = [
-        'id_guru', 'no_d', 'sekolah_id'
+        'no_d'
     ];
 
-    public function guru()
-    {
-        return $this->belongsTo(Guru::class, 'id_guru', 'id');
-    }
     public function dispensasi()
     {
         return $this->belongsTo(Dispensasi::class, 'no_d', 'id');

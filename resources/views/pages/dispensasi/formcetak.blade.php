@@ -46,9 +46,11 @@
         <div class="header">
             <img src="/adminlte/img/neper.png" style="margin-bottom: 10px" class="logo" width="100" alt="">
 
-            <h3>{{ $dispensasi->cetak->sekolah->nama_sekolah }}</h3>
-            <p style="margin-bottom: 5px;">{{ $dispensasi->cetak->sekolah->alamat_sekolah }} No telp
-                {{ $dispensasi->cetak->sekolah->telepon_sekolah }}</p>
+            @foreach ($sekolah as $item)
+                <h3>{{ $item->nama_sekolah }}</h3>
+                <p style="margin-bottom: 5px;">{{ $item->alamat_sekolah }} No telp
+                    {{ $item->telepon_sekolah }}</p>
+            @endforeach
 
         </div>
         <hr style="margin-bottom: 10px">
@@ -85,9 +87,12 @@
             <br>
             <br>
             <br>
-            <td> {{ $dispensasi->cetak->guru->nama_guru }}</td>
+            <td> {{ $dispensasi->guru->nama_guru }}</td>
         </div>
     </div>
+    <script type="text/javascript">
+        window.print();
+    </script>
 </body>
 
 </html>

@@ -11,8 +11,6 @@
                 @csrf
                 <div class="m-3">
                     <label class="form-label">Nama Siswa</label>
-                    <input type="hidden" name="sekolah_id" value="1">
-                    <input type="hidden" name="id_cetak" value="{{ $dispensasi->id }}">
                     <input type="hidden" name="no_d" value="{{ $dispensasi->id }}">
                     <select class="form-control" disabled>
                         <option>{{ $dispensasi->nama_siswa }}</option>
@@ -20,9 +18,10 @@
                 </div>
                 <div class="m-3">
                     <label class="form-label">Pilih guru piket</label>
-                    <select name="id_guru" class="form-control">
+                    <select name="id_guru" class="form-control"
+                        {{ $dispensasi->id_guru == '' ? '' : 'disabled' }}>
                         <option value="">
-                            {{ $dispensasi->id_cetak == '' ? 'Pilih Guru Piket' : $dispensasi->cetak->guru->nama_guru }}
+                            {{ $dispensasi->id_guru == '' ? 'Pilih Guru Piket' : $dispensasi->guru->nama_guru }}
                         </option>
                         <option disabled>
                             ---------------
@@ -35,7 +34,7 @@
                 </div>
                 <div class="m-3">
 
-                    @if (!$dispensasi->id_cetak == '')
+                    @if (!$dispensasi->id_guru == '')
                         <a href="{{ route('formCetak', $dispensasi->id) }}"
                             class="btn btn-sm btn-primary float-right">Lihat
                             cetakan</a>

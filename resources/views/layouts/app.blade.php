@@ -191,6 +191,15 @@
                                         </p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('sekolah') }}"
+                                        class="nav-link {{ request()->is('sekolah*') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-school"></i>
+                                        <p>
+                                            Sekolah
+                                        </p>
+                                    </a>
+                                </li>
                             </ul>
                         </nav>
                         <!-- /.sidebar-menu -->

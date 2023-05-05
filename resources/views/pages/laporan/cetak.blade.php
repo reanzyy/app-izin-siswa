@@ -32,7 +32,7 @@
                     <td>{{ $item->dispensasi->jammulai->jam }}</td>
                     <td>{{ $item->dispensasi->jamkembali->jam }}</td>
                     <td>{{ $item->dispensasi->keperluan }}</td>
-                    {{-- <td>{{ $item->guru->nama_guru }}</td> --}}
+                    <td>{{ $item->dispensasi->guru->nama_guru }}</td>
                     <td>{{ $item->created_at->format('d/m/Y') }}</td>
                 </tr>
             @endforeach
