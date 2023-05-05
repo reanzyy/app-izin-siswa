@@ -6,6 +6,7 @@ use App\Http\Controllers\DispensasiController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JamPelajaranController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\SekolahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,8 @@ Route::get('dispensasi/tolak/{dispensasi}', [DispensasiController::class, 'statu
 Route::get('dispensasi/{dispensasi}/guru', [DispensasiController::class, 'formPilihGuru'])->name('formPilihguru');
 Route::post('dispensasi/{dispensasi}/guru/store', [DispensasiController::class, 'pilihGuru'])->name('pilihGuru');
 Route::get('dispensasi/{dispensasi}/cetak', [DispensasiController::class, 'cetakSurat'])->name('formCetak');
+
+
+// Route::get('sekolah', [SekolahController::class, 'index'])->name('sekolah');
+Route::get('sekolah', [SekolahController::class, 'edit'])->name('sekolah');
+Route::post('sekolah/{sekolah}/edit', [SekolahController::class, 'update'])->name('sekolah.update');

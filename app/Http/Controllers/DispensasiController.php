@@ -8,6 +8,7 @@ use App\Models\Dispensasi;
 use App\Models\Guru;
 use App\Models\JamPelajaran;
 use App\Models\Jurusan;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
 
 class DispensasiController extends Controller
@@ -93,11 +94,6 @@ class DispensasiController extends Controller
 
     public function statusDitolak(Request $request, Dispensasi $dispensasi)
     {
-        Cetak::create([
-            'no_d' => $dispensasi->id,
-            'sekolah_id' => 1,
-        ]);
-
         $data = Dispensasi::where('id', $dispensasi->id)->first();
 
         $status_sekarang = $data->status;
@@ -105,7 +101,6 @@ class DispensasiController extends Controller
         if ($status_sekarang == 2) {
             Dispensasi::where('id', $dispensasi->id)->update([
                 'status' => 0,
-                'id_cetak' => 1,
             ]);
         }
 
@@ -122,20 +117,18 @@ class DispensasiController extends Controller
 
     public function pilihGuru(Request $request, Dispensasi $dispensasi)
     {
-
         Cetak::create([
-            'id_guru' => $request->id_guru,
             'no_d' => $request->no_d,
-            'sekolah_id' => $request->sekolah_id,
+            // 'sekolah_id' => $request->sekolah_id,
         ]);
 
         $data = Dispensasi::where('id', $dispensasi->id)->first();
 
-        $cetak = $data->id_cetak;
+        $guru = $data->id_guru;
 
-        if ($cetak == '') {
+        if ($guru == '') {
             Dispensasi::where('id', $dispensasi->id)->update([
-                'id_cetak' => $dispensasi->id
+                'id_guru' => $request->id_guru
             ]);
         }
 
@@ -145,8 +138,10 @@ class DispensasiController extends Controller
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)
     {
 
-        $cetak =  Cetak::with('guru', 'dispensasi')->get();
+        $sekolah = Sekolah::get();
 
-        return view('pages.dispensasi.formcetak', compact('dispensasi', 'cetak'));
+        $cetak =  Cetak::with('dispensasi')->get();
+
+        return view('pages.dispensasi.formcetak', compact('dispensasi', 'sekolah'));
     }
 }

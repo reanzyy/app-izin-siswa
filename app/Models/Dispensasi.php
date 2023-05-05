@@ -23,7 +23,7 @@ class Dispensasi extends Model
         'keperluan',
         'plat_no',
         'status',
-        'id_cetak',
+        'id_guru',
     ];
 
     public function kelas()
@@ -42,8 +42,8 @@ class Dispensasi extends Model
     {
         return $this->belongsTo(JamPelajaran::class, 'jam_kembali', 'id');
     }
-    public function cetak()
+    public function guru()
     {
-        return $this->belongsTo(Cetak::class, 'id_cetak', 'id');
+        return $this->belongsTo(Guru::class, 'id_guru', 'id');
     }
 }

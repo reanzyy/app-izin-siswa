@@ -7,44 +7,18 @@ use Illuminate\Http\Request;
 
 class SekolahController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+
+        // return view('pages.sekolah.index', compact('sekolah'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Sekolah $sekolah)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Sekolah $sekolah)
     {
-        //
+        $sekolah = Sekolah::get();
+
+        return view('pages.sekolah.edit', compact('sekolah'));
     }
 
     /**
@@ -52,7 +26,13 @@ class SekolahController extends Controller
      */
     public function update(Request $request, Sekolah $sekolah)
     {
-        //
+        Sekolah::where('id', $sekolah->id)->update([
+            'nama_sekolah' => $request->nama_sekolah,
+            'alamat_sekolah' => $request->alamat_sekolah,
+            'telepon_sekolah' => $request->telepon_sekolah
+        ]);
+
+        return back();
     }
 
     /**
