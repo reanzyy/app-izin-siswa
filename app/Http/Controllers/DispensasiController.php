@@ -74,7 +74,7 @@ class DispensasiController extends Controller
     {
         Dispensasi::where('id', $dispensasi->id)->delete();
 
-        return redirect('dispensasi');
+        return redirect('dispensasi')->with('delete', 'Data berhasil dihapus');
     }
 
     public function statusDiterima(Dispensasi $dispensasi)
@@ -89,7 +89,7 @@ class DispensasiController extends Controller
             ]);
         }
 
-        return back();
+        return back()->with('terima', 'Data diterima');
     }
 
     public function statusDitolak(Request $request, Dispensasi $dispensasi)
@@ -104,7 +104,7 @@ class DispensasiController extends Controller
             ]);
         }
 
-        return back();
+        return back()->with('tolak', 'Data ditolak');
     }
 
     public function formPilihGuru(Dispensasi $dispensasi)
@@ -127,12 +127,15 @@ class DispensasiController extends Controller
         $guru = $data->id_guru;
 
         if ($guru == '') {
-            Dispensasi::where('id', $dispensasi->id)->update([
-                'id_guru' => $request->id_guru
+
+            $validate = $request->validate([
+                'id_guru' => 'required',
             ]);
+
+            Dispensasi::where('id', $dispensasi->id)->update($validate);
         }
 
-        return back();
+        return back()->with('cetak', 'Data berhasil dicetak');;
     }
 
     public function cetakSurat(Dispensasi $dispensasi, Cetak $cetak)

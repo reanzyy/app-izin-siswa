@@ -7,6 +7,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JamPelajaranController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\JurusanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,12 @@ Route::middleware([
 
 Route::resource('dispensasi', DispensasiController::class)->shallow()->only([
     'index', 'create', 'store', 'show', 'destroy',
+]);
+Route::resource('kelas', KelasController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
+]);
+Route::resource('jurusan', JurusanController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
 ]);
 Route::resource('kelas', KelasController::class)->only([
     'index', 'create', 'store', 'edit', 'update', 'destroy'

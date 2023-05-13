@@ -34,7 +34,7 @@ class GuruController extends Controller
             'nama_guru' => $request->nama_guru,
         ]);
 
-        return redirect('guru');
+        return redirect('guru')->with('store', 'Data berhasil dibuat');
     }
 
     /**
@@ -62,7 +62,7 @@ class GuruController extends Controller
             'nama_guru' => $request->nama_guru,
         ]);
 
-        return redirect('guru');
+        return redirect('guru')->with('update', 'Data berhasil diubah');
     }
 
     /**
@@ -72,6 +72,6 @@ class GuruController extends Controller
     {
         Guru::where('id', $guru->id)->delete();
 
-        return redirect('guru');
+        return redirect('guru')->with('delete', 'Data berhasil dihapus');
     }
 }

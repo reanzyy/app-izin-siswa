@@ -51,18 +51,13 @@
                                     <a href="{{ route('dispensasi.show', $item->id) }}"
                                         class="btn btn-primary btn-sm">Detail</a>
 
-                                    <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Delete
-                                    </button>
-
-                                    <x-delete-modal>
-                                        <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                        </form>
-                                    </x-delete-modal>
+                                    <form action="{{ route('dispensasi.destroy', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit"
+                                            onclick="return confirm('Apakah anda yakin ingin menghapusnya?')"
+                                            class="btn btn-outline-danger btn-sm">Delete</button>
+                                    </form>
 
                                 </div>
                             </td>

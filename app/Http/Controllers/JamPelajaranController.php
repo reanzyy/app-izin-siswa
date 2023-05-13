@@ -35,7 +35,7 @@ class JamPelajaranController extends Controller
             'jam' => $request->jam,
         ]);
 
-        return redirect('jam');
+        return redirect('jam')->with('store', 'Data berhasil dibuat');
     }
 
     /**
@@ -64,7 +64,7 @@ class JamPelajaranController extends Controller
             'jam' => $request->jam,
         ]);
 
-        return redirect('jam');
+        return redirect('jam')->with('update', 'Data berhasil diubah');
     }
 
     /**
@@ -74,6 +74,6 @@ class JamPelajaranController extends Controller
     {
         JamPelajaran::where('id', $jam->id)->delete();
 
-        return redirect('jam');
+        return redirect('jam')->with('delete', 'Data berhasil dihapus');
     }
 }

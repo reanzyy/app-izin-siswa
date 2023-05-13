@@ -32,7 +32,7 @@ class SekolahController extends Controller
             'telepon_sekolah' => $request->telepon_sekolah
         ]);
 
-        return back();
+        return back()->with('message', 'Data berhasil diubah');
     }
 
     /**

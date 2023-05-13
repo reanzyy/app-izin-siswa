@@ -39,15 +39,7 @@ class KelasController extends Controller
             'id_jurusan' => $request->id_jurusan,
         ]);
 
-        return redirect('kelas');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kelas $kelas)
-    {
-        //
+        return redirect('kelas')->with('store', 'Data berhasil dibuat');
     }
 
     /**
@@ -72,7 +64,7 @@ class KelasController extends Controller
             'id_jurusan' => $request->id_jurusan,
         ]);
 
-        return redirect('kelas');
+        return redirect('kelas')->with('update', 'Data berhasil diubah');
     }
 
     /**
@@ -82,6 +74,6 @@ class KelasController extends Controller
     {
         Kelas::where('id', $kela->id)->delete();
 
-        return redirect('kelas');
+        return redirect('kelas')->with('delete', 'Data berhasil dihapus');
     }
 }

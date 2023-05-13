@@ -21,6 +21,6 @@ class LaporanController extends Controller
 
         $lap = Cetak::with('dispensasi')->whereBetween('created_at', [$txtTglAwal, $txtTglAkhir])->latest()->get();
 
-        return view('pages.laporan.cetak', compact('lap', 'validation'));
+        return view('pages.laporan.cetak', compact('lap'));
     }
 }

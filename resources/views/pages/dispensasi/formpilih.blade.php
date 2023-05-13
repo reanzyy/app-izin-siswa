@@ -5,6 +5,12 @@
         </h2>
     </x-slot>
 
+    @if ($message = Session::get('cetak'))
+        <div class="alert alert-warning fade show mt-4 -mb-5 mx-4" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-4 bg-white sm:p-6 ">
             <form action="{{ route('pilihGuru', $dispensasi->id) }}" method="post">
@@ -18,8 +24,7 @@
                 </div>
                 <div class="m-3">
                     <label class="form-label">Pilih guru piket</label>
-                    <select name="id_guru" class="form-control"
-                        {{ $dispensasi->id_guru == '' ? '' : 'disabled' }}>
+                    <select name="id_guru" class="form-control" {{ $dispensasi->id_guru == '' ? '' : 'disabled' }}>
                         <option value="">
                             {{ $dispensasi->id_guru == '' ? 'Pilih Guru Piket' : $dispensasi->guru->nama_guru }}
                         </option>
@@ -31,11 +36,14 @@
                                 {{ $item->nama_guru }}</option>
                         @endforeach
                     </select>
+                    @error('id_guru')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="m-3">
 
                     @if (!$dispensasi->id_guru == '')
-                        <a href="{{ route('formCetak', $dispensasi->id) }}"
+                        <a href="{{ route('formCetak', $dispensasi->id) }}" target="_blank"
                             class="btn btn-sm btn-primary float-right">Lihat
                             cetakan</a>
                         <div class="clear-both"></div>

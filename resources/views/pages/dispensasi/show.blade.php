@@ -5,6 +5,16 @@
         </h2>
     </x-slot>
 
+    @if ($message = Session::get('terima'))
+        <div class="alert alert-success fade show mt-4 -mb-5 mx-4" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @elseif ($message = Session::get('tolak'))
+        <div class="alert alert-danger fade show mt-4 -mb-5 mx-4" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <div class="shadow overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-5 bg-white sm:p-6 ">
             <table class="table table-bordered">

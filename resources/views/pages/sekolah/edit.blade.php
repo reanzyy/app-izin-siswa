@@ -5,6 +5,12 @@
         </h2>
     </x-slot>
 
+    @if ($message = Session::get('message'))
+        <div class="alert alert-success fade show mt-4 -mb-5 mx-4" role="alert">
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
     <div class="overflow-hidden sm-rounded-md my-5 mx-4">
         <div class="px-4 py-4 sm:p-6 ">
 

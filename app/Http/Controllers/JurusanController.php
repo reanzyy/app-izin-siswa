@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
+use PHPUnit\TextUI\XmlConfiguration\Logging\Junit;
 
 class JurusanController extends Controller
 {
@@ -12,7 +14,10 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        //
+
+        $jurusan = Jurusan::get();
+
+        return view('pages.jurusan.index', compact('jurusan'));
     }
 
     /**
@@ -20,7 +25,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.jurusan.create');
     }
 
     /**
@@ -28,15 +33,11 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        Jurusan::create([
+            'nama_jurusan' => $request->nama_jurusan,
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Jurusan $jurusan)
-    {
-        //
+        return redirect('jurusan')->with('store', 'Data berhasil dibuat');
     }
 
     /**
@@ -44,7 +45,7 @@ class JurusanController extends Controller
      */
     public function edit(Jurusan $jurusan)
     {
-        //
+        return view('pages.jurusan.edit', compact('jurusan'));
     }
 
     /**
@@ -52,7 +53,12 @@ class JurusanController extends Controller
      */
     public function update(Request $request, Jurusan $jurusan)
     {
-        //
+
+        Jurusan::where('id', $jurusan->id)->update([
+            'nama_jurusan' => $request->nama_jurusan,
+        ]);
+
+        return redirect('jurusan')->with('update', 'Data berhasil diubah');
     }
 
     /**
@@ -60,6 +66,8 @@ class JurusanController extends Controller
      */
     public function destroy(Jurusan $jurusan)
     {
-        //
+        Jurusan::where('id', $jurusan->id)->delete();
+
+        return redirect('jurusan')->with('delete', 'Data berhasil dihapus');
     }
 }

@@ -165,6 +165,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ route('jurusan.index') }}"
+                                        class="nav-link {{ request()->is('jurusan*') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-layer-group"></i>
+                                        <p>
+                                            Jurusan
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ route('jam.index') }}"
                                         class="nav-link {{ request()->is('jam*') ? 'active' : '' }}">
                                         <i class="nav-icon fas fa-clock"></i>
@@ -238,6 +247,27 @@
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Default box -->
+
+                                    @if ($message = Session::get('store'))
+                                        <div class="alert alert-success fade show mt-4 -mb-5 mx-4" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @elseif ($message = Session::get('update'))
+                                        <div class="alert alert-warning fade show mt-4 -mb-5 mx-4" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @elseif ($message = Session::get('delete'))
+                                        <div class="alert alert-danger fade show mt-4 -mb-5 mx-4" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
+
                                     {{ $slot }}
                                 </div>
                             </div>

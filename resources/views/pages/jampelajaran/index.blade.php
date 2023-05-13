@@ -24,18 +24,12 @@
                             <div class="flex gap-1">
                                 <a href="{{ route('jam.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
 
-                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    Delete
-                                </button>
-
-                                <x-delete-modal>
-                                    <form action="{{ route('jam.destroy', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
-                                    </form>
-                                </x-delete-modal>
+                                <form action="{{ route('jam.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" onclick="return confirm('Apakah anda yakin ingin menghapusnya?')"
+                                        class="btn btn-outline-danger btn-sm">Delete</button>
+                                </form>
 
                             </div>
                         </td>
