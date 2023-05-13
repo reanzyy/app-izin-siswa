@@ -62,7 +62,6 @@
         <div class="hero-container" data-aos="fade-up">
             <h1>Welcome to SMKN 1 Cirebon</h1>
             <h2>Untuk membuat surat izin keluar sekolah bisa mengikuti Langkah-langkah dibawah ini</h2>
-            <a href="#cta" class="btn-get-started scrollto">Get Started</a>
         </div>
     </section><!-- End Hero -->
 
@@ -94,7 +93,7 @@
         </section><!-- End About Section -->
 
         <!-- ======= Cta Section ======= -->
-        <section id="cta" class="cta ">
+        <section id="form" class="cta ">
             <div class="container" data-aos="fade-in">
 
                 <div class="text-center">
