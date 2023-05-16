@@ -8,6 +8,10 @@ use App\Http\Controllers\JamPelajaranController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\JurusanController;
+use App\Models\Dispensasi;
+use App\Models\Guru;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +34,11 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('pages.dashboard');
+        $dispensasi = Dispensasi::count();
+        $kelas = Kelas::count();
+        $jurusan = Jurusan::count();
+        $guru = Guru::count();
+        return view('pages.dashboard', compact('dispensasi', 'kelas', 'jurusan', 'guru'));
     })->name('dashboard');
 });
 
