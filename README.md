@@ -133,18 +133,29 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/reanzyy/app-izin-siswa
+   ```
+2. Install Composer Package
+   ```sh
+   composer install
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Run NPM
+   ```sh
+   npm run build
+   ```
+5. Generate Key
+   ```sh
+   php artisan key:generate
+   ```
+6. Migrate Database with Seed
+   ```sh
+   php artisan migrate --seed
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
